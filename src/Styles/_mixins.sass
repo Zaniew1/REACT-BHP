@@ -1,22 +1,19 @@
-@mixin flexCenter($direction){
+@mixin flexCenter($direction)
     display: flex
     justify-content: center
     align-items: center
     flex-direction: $direction
-}
-@mixin flexSpaceBetween($direction){
+@mixin flexSpaceBetween($direction)
     display: flex
     justify-content: space-between
     align-items: center
     flex-direction: $direction
-}    
-@mixin flexSpaceAround($direction){
+@mixin flexSpaceAround($direction)
     display: flex
     justify-content: space-around
     align-items: center
     flex-direction: $direction
-}    
-@mixin btn-primal(){
+@mixin btn-primal()
     display: flex
     justify-content: center
     align-content: center
@@ -27,17 +24,16 @@
     border: 1px solid transparent
     padding: 0.4375rem 1.25rem
     transition: 0.2s ease-in-out
-}
-@mixin btn-delete(){
+
+@mixin btn-delete()
     @include btn-primal
     color: rgb(255, 62, 29)
     border-color: transparent
     background: rgb(77, 47, 58)
-}
-@mixin btn-blue(){
+
+@mixin btn-blue()
     @include btn-primal
     color: rgb(255, 255, 255)
     background-color: rgb(105, 108, 255)
     box-shadow: rgba(105, 108, 255, 0.4) 0px 0.125rem 0.25rem 0px
     border-color: rgb(105, 108, 255)
-}
