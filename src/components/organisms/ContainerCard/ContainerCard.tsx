@@ -3,7 +3,7 @@
 //     children: ReactNode
 // }
 import { Routes, Route } from 'react-router-dom';
-import { Home } from '../../../Home/Home';
+import { Home } from '../../../pages/Home/Home';
 export const ContainerCard:React.FC = ():JSX.Element => {
     return  (
         <main  className='container'>
