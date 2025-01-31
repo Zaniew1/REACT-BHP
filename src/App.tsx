@@ -1,10 +1,10 @@
-import { Header } from './Header/Header'
-import {ContainerCard} from "./ContainerCard/ContainerCard"
+import { Header } from './components/organisms/Header/Header'
+import {ContainerCard} from "./components/organisms/ContainerCard/ContainerCard"
 import './Styles/Style.css'
 
 export function App() {
   return (
-    <div className="main">
+    <div className="wrapper">
       <Header/>
       <ContainerCard/>
       
