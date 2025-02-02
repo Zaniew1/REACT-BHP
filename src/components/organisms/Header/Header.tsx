@@ -6,7 +6,7 @@ import { Logo } from "../../atoms/Logo"
         <header>
             <div className="logo_container">
                 <Logo/>
-                <Management/>
+                <Settings/>
             </div>
            
         </header>
