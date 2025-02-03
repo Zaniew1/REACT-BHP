@@ -1,4 +1,6 @@
 import { Logo } from "../../atoms/Logo"
+import { Navigation } from "../../molecules/Navigation"
+import { Settings } from "../../molecules/Settings"
 
  
  export const Header:React.FC = ():JSX.Element => {
@@ -8,6 +10,7 @@ import { Logo } from "../../atoms/Logo"
                 <Logo/>
                 <Settings/>
             </div>
+            <Navigation/>
            
         </header>
 

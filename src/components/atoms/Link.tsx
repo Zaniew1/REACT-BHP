@@ -1,13 +1,13 @@
 
-type LinkType = {
-    class: string,
-    href:string,
-    text?: string,
-    target?: "_blank" | "_parent" | "_self" | "_top";
+export type LinkType = {
+  linkClass: string,
+  linkHref:string,
+  linkText?: string,
+  linkTarget?: "_blank" | "_parent" | "_self" | "_top";
 }
 
 export const Link = (props:LinkType):React.JSX.Element => {
   return (
-    <a className={props.class} href={props.href} target={props.target ?? "_blank"}>{props.text}</a>
+    <a className={props.linkClass} href={props.linkHref} target={props.linkTarget ?? "_blank"}>{props.linkText}</a>
   )
 }
