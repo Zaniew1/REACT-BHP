@@ -4,12 +4,10 @@
 // }
 // import { Routes, Route } from 'react-router-dom';
 
-import { Header } from "../../molecules/Header";
 // import { Home } from '../../templates/Home/Home';
 export const ContainerCard:React.FC = ():JSX.Element => {
     return  (
         <main  className='container'>
-            <Header/>
             {/* <Routes>
                     <Route index element={<Home/>}></Route>
                     {/* <Route path={'/login'} element={<Login/>}></Route>
