@@ -1,12 +1,15 @@
 import React from 'react'
-import { Button } from '../atoms/Button'
-import { Icon } from '../atoms/Icon'
-export const Settings = ():React.JSX.Element => {
+import { Link } from '../atoms/Link'
+import { Sun, Bell, SquareDashed, Settings } from 'lucide-react';
+
+export const SettingsBar = ():React.JSX.Element => {
   return (
-    <div>
-      <Button buttonClass='button-setting' buttonClick={()=>{}}><Icon iconClass='icon-setting' iconSrc={['far', 'sun']}/></Button>
-      <Button buttonClass='button-setting' buttonClick={()=>{}}><Icon iconClass='icon-setting' iconSrc={['far', 'sun']}/></Button>
-      <Button buttonClass='button-setting' buttonClick={()=>{}}><Icon iconClass='icon-setting' iconSrc={['far', 'sun']}/></Button>
+    <div className="settings">
+      <Link linkHref={"/"} linkClass={"settings_link"} ><Sun/></Link>
+      <Link linkHref={"/"} linkClass={"settings_link"} ><Bell/></Link>
+      <Link linkHref={"/"} linkClass={"settings_link"} ><SquareDashed/></Link>
+      <Link linkHref={"/"} linkClass={"settings_link"} ><Settings /></Link>
+
     </div>
   )
 }

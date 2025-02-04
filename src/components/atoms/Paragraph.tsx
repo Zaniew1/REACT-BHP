@@ -1,10 +1,10 @@
 import React from 'react'
-type ParagraphType = {
-    text:string,
-    class:string
+export type ParagraphType = {
+    paragraphText:string,
+    paragraphClass?:string
 }
 export const Paragraph = (props: ParagraphType):React.JSX.Element => {
   return (
-    <p className={props.class}>{props.text}</p>
+    <p className={props.paragraphClass}>{props.paragraphText}</p>
   )
 }

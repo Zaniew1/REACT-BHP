@@ -1,11 +1,14 @@
 import React from 'react'
-import { LinkIcon } from './LinkIcon'
+import { Building2, UsersRound, GraduationCap  } from 'lucide-react';
+import { Link } from '../atoms/Link';
+import { Paragraph } from '../atoms/Paragraph';
+
 export const Navigation = ():React.JSX.Element => {
   return (
     <div className={'navigation'}>
-      <LinkIcon iconSrc={["far", "building"]} iconClass={"icon"} linkHref={"/"} linkClass={"link"} linkText={'Firmy'}/>
-      <LinkIcon iconSrc={["far", "user"]} iconClass={"icon"} linkHref={"/"} linkClass={"link"} linkText={'Pracownicy'}/>
-      <LinkIcon iconSrc={["fas", "graduation-cap"]} iconClass={"icon"} linkHref={"/"} linkClass={"link"} linkText={'Szkolenia'}/>
+      <Link linkHref={"/"} linkClass={"navigation_link"} ><Building2/><Paragraph paragraphClass={'navigation_paragraph'} paragraphText={'Firmy'}/></Link>
+      <Link linkHref={"/"} linkClass={"navigation_link"} ><UsersRound/><Paragraph paragraphClass={'navigation_paragraph'} paragraphText={'Pracownicy'}/></Link>
+      <Link linkHref={"/"} linkClass={"navigation_link"} ><GraduationCap /><Paragraph paragraphClass={'navigation_paragraph'} paragraphText={'Szkolenia'}/></Link>
     </div>
   )
 }

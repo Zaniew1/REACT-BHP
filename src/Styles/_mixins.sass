@@ -42,3 +42,12 @@
     background-color: rgb(105, 108, 255)
     box-shadow: rgba(105, 108, 255, 0.4) 0px 0.125rem 0.25rem 0px
     border-color: rgb(105, 108, 255)
+@mixin link-primal()
+    @include flexCenter('row')
+    list-style-type: none
+    text-decoration: none
+    color: $text-color
+@mixin paragraph-primal()
+    font-size: 1em
+    color: $text-color
+    font-family: $main-font-family
