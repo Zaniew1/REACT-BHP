@@ -29,7 +29,7 @@
     border: 1px solid transparent
     padding: 0.4375rem 1.25rem
     transition: 0.2s ease-in-out
-
+    cursor: pointer
 @mixin btn-delete()
     @include btn-primal
     color: rgb(255, 62, 29)
@@ -43,11 +43,15 @@
     box-shadow: rgba(105, 108, 255, 0.4) 0px 0.125rem 0.25rem 0px
     border-color: rgb(105, 108, 255)
 @mixin link-primal()
-    @include flexCenter('row')
+    @include flexCenter(row)
     list-style-type: none
     text-decoration: none
     color: $text-color
+    cursor: pointer
+
 @mixin paragraph-primal()
     font-size: 1em
     color: $text-color
+    font-family: $main-font-family
+@mixin icon-primal()
     font-family: $main-font-family

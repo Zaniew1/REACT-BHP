@@ -6,7 +6,7 @@ const Footer = ():React.JSX.Element => {
   return (
     <div className='foot'>
       <div className='footer'>
-        <Paragraph paragraphClass={'footer_paragraph'} paragraphText={'2025 © Wszelkie prawa zastrzeżone'}/>
+        <Paragraph paragraphClass={'footer_restricted'} paragraphText={'2025 © Wszelkie prawa zastrzeżone'}/>
       </div>
       <div className='footer'>
         <Link linkHref={"/safety"} linkClass={"footer_link"} ><Paragraph paragraphClass={'footer_paragraph'} paragraphText={'Bezpieczeństwo danych'}/></Link>

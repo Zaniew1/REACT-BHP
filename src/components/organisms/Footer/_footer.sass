@@ -1,10 +1,17 @@
 .foot
-    @include flexSpaceBetween('row')
+    @include flexSpaceBetween(row)
     .footer
-        @include flexCenter('row')
+        @include flexCenter(row)
         margin: 0.5em 2em
         &_link
             @include link-primal
             margin: 0 0.7em
         &_paragraph
             @include paragraph-primal
+            font-size: 1.005vw
+            transition: .2s ease-in-out
+            &:hover
+                color: lighten($text-color, 20% )
+        &_restricted
+            @include paragraph-primal
+            font-size: 1.005vw

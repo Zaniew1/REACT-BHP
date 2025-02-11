@@ -1,14 +1,19 @@
 import React from 'react'
-import { Link } from '../atoms/Link'
 import { Sun, Bell, SquareDashed, Settings } from 'lucide-react';
-
+import { Button } from '../atoms/Button';
 export const SettingsBar = ():React.JSX.Element => {
+
+  const handleDarkMode = () =>{console.log('darkmode')}
+  const handleNotifications = () =>{console.log('notifications')}
+  const handleFullScreen = () =>{console.log('fullscreen')}
+  const handleSettings = () =>{console.log('settings')}
+
   return (
     <div className="settings">
-      <Link linkHref={"/"} linkClass={"settings_link"} ><Sun/></Link>
-      <Link linkHref={"/"} linkClass={"settings_link"} ><Bell/></Link>
-      <Link linkHref={"/"} linkClass={"settings_link"} ><SquareDashed/></Link>
-      <Link linkHref={"/"} linkClass={"settings_link"} ><Settings /></Link>
+      <Button buttonClick={handleDarkMode} buttonClass={"settings_button"} ><Sun/></Button>
+      <Button buttonClick={handleNotifications} buttonClass={"settings_button"} ><Bell/></Button>
+      <Button buttonClick={handleFullScreen} buttonClass={"settings_button"} ><SquareDashed/></Button>
+      <Button buttonClick={handleSettings} buttonClass={"settings_button"} ><Settings /></Button>
 
     </div>
   )
