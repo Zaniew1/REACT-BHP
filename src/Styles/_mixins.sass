@@ -55,3 +55,21 @@
     font-family: $main-font-family
 @mixin icon-primal()
     font-family: $main-font-family
+
+@mixin warning()
+    background-color: $warning-bgc
+    color: $warning-color
+@mixin error()
+    background-color: $error-bgc
+    color: $error-color
+@mixin success()
+    background-color: $success-bgc
+    color: $success-color
+@mixin info()
+    background-color: $info-bgc
+    color: $info-color
+@mixin infoCard($padding)
+    background-color: $organisms-background
+    width: 100%
+    padding: $padding
+    border-radius: 0.8em

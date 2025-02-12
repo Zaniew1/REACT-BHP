@@ -1,20 +1,41 @@
 .infoBar
     @include flexSpaceAround(row)
-    background-color: $organisms-background
-    width: 100%
-    padding: 1em
-    border-radius: 0.8em
+    @include infoCard(1em 3em)
     &_wrapper
         @include flex(flex-start, center, row)
-        flex-wrap: wrap
+        width: 100%
+        padding: 0.5em 0
+        &:nth-of-type(1) 
+            .infoBar_wrapper_icon
+               @include success() 
+        &:nth-of-type(2)
+            .infoBar_wrapper_icon
+               @include info() 
+        &:nth-of-type(3)
+            .infoBar_wrapper_icon
+               @include error() 
+        &:nth-of-type(4)
+            .infoBar_wrapper_icon
+               @include warning() 
         &_icon
             @include icon-primal() 
-            width: 45%
-        &_paragraph
-            @include paragraph-primal()
-            &:nth-of-type(1)
-                width: 50%
-            &:nth-of-type(2)
-                width: 10%
-            &:nth-of-type(3)
-                width: 85%
+            @include flexCenter(row)
+            width: 40px
+            height: 40px
+            margin-right: 2em
+            border-radius: 0.6em
+            background-color:  grey
+        &_text
+            @include flex(flex-start, center, row)
+            flex-wrap: wrap
+            flex-grow: 1
+            &_paragraph
+                @include paragraph-primal()
+                &:nth-of-type(1)
+                    width: 100%
+                    font-size: 1.2vw
+                    padding: 0.5em 0 0.8em 0
+                &:nth-of-type(2)
+                    padding-right:  0.3em
+                    font-size: 1.4em
+                &:nth-of-type(3)
