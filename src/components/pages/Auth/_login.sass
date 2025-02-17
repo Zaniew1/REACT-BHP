@@ -1,0 +1,23 @@
+.auth
+    display: flex
+    flex-direction: column
+    background-color: $organisms-background
+    width: 30%
+    margin: 2em auto
+    height: 90%
+    padding: 1em 2em
+    border-radius: $border-radius
+    &__logo
+        margin: 2em auto
+        scale: 1.4
+    &__header
+        @include paragraph-primal()
+        font-size: 1.4vw
+        color: $text-whiter-color
+    &__header__secondary
+        @include paragraph-primal()
+        padding: 0.5em 0
+    &__input
+        @include input-primal()
+        &:focus
+            background-color: transparent 

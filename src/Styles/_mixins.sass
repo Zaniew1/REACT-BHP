@@ -73,3 +73,25 @@
     width: 100%
     padding: $padding
     border-radius: 0.8em
+@mixin inputWrapper()
+    display: flex
+    flex-direction: column
+    margin-bottom: 1em
+@mixin input-primal()
+    display: block
+    width: 100%
+    color: $text-whiter-color
+    padding: 0.5em 1em
+    margin-bottom: 1em
+    outline: none
+    border: 1px solid $text-color
+    background-color: transparent
+    border: 0px
+    outline: none
+    -webkit-box-shadow: none
+    -moz-box-shadow: none
+    box-shadow: none
+    
+@mixin required()
+    color: $error-bgc
+    border: 1px solid $error-bgc

@@ -43,6 +43,16 @@ body {
   height: 100%;
 }
 
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.input__wrapper .input_required {
+  color: rgb(77, 47, 58);
+  border: 1px solid rgb(77, 47, 58);
+}
+
 .navigation {
   display: flex;
   justify-content: flex-start;
@@ -234,6 +244,7 @@ body {
   padding-right: 0.3em;
   font-size: 1.4em;
 }
+
 .container {
   display: flex;
   justify-content: flex-start;
@@ -247,4 +258,49 @@ body {
 #page_home {
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  background-color: #2b2c3f;
+  width: 30%;
+  margin: 2em auto;
+  height: 90%;
+  padding: 1em 2em;
+  border-radius: 1.2em;
+}
+.auth__logo {
+  margin: 2em auto;
+  scale: 1.4;
+}
+.auth__header {
+  font-size: 1em;
+  color: #a0a0c0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4vw;
+  color: #babad1;
+}
+.auth__header__secondary {
+  font-size: 1em;
+  color: #a0a0c0;
+  font-family: "Poppins", sans-serif;
+  padding: 0.5em 0;
+}
+.auth__input {
+  display: block;
+  width: 100%;
+  color: #babad1;
+  padding: 0.5em 1em;
+  margin-bottom: 1em;
+  outline: none;
+  border: 1px solid #a0a0c0;
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+  box-shadow: none;
+}
+.auth__input:focus {
+  background-color: transparent;
 }/*# sourceMappingURL=Style.css.map */
