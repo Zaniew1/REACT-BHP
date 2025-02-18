@@ -1,7 +1,7 @@
 import React from 'react'
 import { Logo } from '../../atoms/Logo'
 import { Paragraph } from '../../atoms/Paragraph'
-import { InputText } from '../../atoms/InputText'
+import { InputText } from '../../molecules/InputText'
 
 const Login = ():React.JSX.Element => {
   return (

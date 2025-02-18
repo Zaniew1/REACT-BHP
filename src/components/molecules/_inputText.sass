@@ -1,0 +1,26 @@
+.input__wrapper
+    display: flex
+    flex-direction: column
+    margin-bottom: 1em
+    .input
+        background-color: #2b2c40
+        color: #a0a0c0
+        font-weight: 400
+        font-size: 0.9375rem
+        line-height: 1.53
+        outline: none
+        border: none
+        border: 1px solid #444564
+        border-radius: 0.4em
+        padding: 0.4375rem 0.875rem
+        &:focus
+            border-color: rgb(105, 108, 255)
+            box-shadow: 0 0 0.25rem 0.05rem rgba(255, 255, 255, 0.1)
+    .input__label
+        font-size: 0.9rem
+        padding-bottom: 0.3rem
+        color: $text-whiter-color
+        text-transform: uppercase
+        &__req::after
+            padding-left: 0.2rem
+            content: "*" 

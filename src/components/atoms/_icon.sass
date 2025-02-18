@@ -1,0 +1,17 @@
+%icon-primary
+    @include flexCenter(row)
+    width: 3em
+    height: 3em
+    border-radius: 0.4em
+.icon-red
+    @extend %icon-primary
+    @include error()
+.icon-grey
+    @extend %icon-primary
+    @include info()
+.icon-yellow
+    @extend %icon-primary
+    @include warning()
+.icon-green
+    @extend %icon-primary
+    @include success()

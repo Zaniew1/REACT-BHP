@@ -12,12 +12,7 @@ export const Home = ():React.JSX.Element => {
     </div>
   )
 }
-  {/* <Route path={'/login'} element={<Login/>}></Route>
-                    <Route path={'/forgetPassword'} element={<ForgetPassword/>}></Route>
-                    <Route path={'/resetPassword/:id'} element={<Reset/>}></Route>
-                    <Route path={'/changePassword'} element={<ChangePassword/>}></Route>
-                    <Route path={'/createUser'} element={<Create/>}></Route>
+  {/* 
                     <Route path={'/me'} element={<Me/>}></Route>
-                    <Route path={'/CreateNewPost'} element={<CreateNewPost/>}></Route>
                     <Route path={'/editPost/:id'} element={<EditPost/>}></Route>
                     <Route path={'/:id'} element={<SinglePost/>}></Route>  */}

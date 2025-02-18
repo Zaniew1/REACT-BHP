@@ -30,6 +30,36 @@ body {
   cursor: pointer;
 }
 
+.icon-green, .icon-yellow, .icon-grey, .icon-red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 3em;
+  height: 3em;
+  border-radius: 0.4em;
+}
+
+.icon-red {
+  background-color: rgb(77, 47, 58);
+  color: rgb(255, 62, 29);
+}
+
+.icon-grey {
+  background-color: rgb(57, 60, 80);
+  color: rgb(133, 146, 163);
+}
+
+.icon-yellow {
+  background-color: rgb(77, 64, 54);
+  color: rgb(255, 171, 0);
+}
+
+.icon-green {
+  background-color: rgb(54, 72, 63);
+  color: rgb(113, 221, 55);
+}
+
 .logo {
   display: flex;
   justify-content: center;
@@ -41,16 +71,6 @@ body {
 .logo_icon {
   width: 100%;
   height: 100%;
-}
-
-.input__wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1em;
-}
-.input__wrapper .input_required {
-  color: rgb(77, 47, 58);
-  border: 1px solid rgb(77, 47, 58);
 }
 
 .navigation {
@@ -133,6 +153,56 @@ body {
 .settings_button:hover {
   transform: scale(1.1);
   color: #dddde9;
+}
+
+.input__wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.input__wrapper .input {
+  background-color: #2b2c40;
+  color: #a0a0c0;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.53;
+  outline: none;
+  border: none;
+  border: 1px solid #444564;
+  border-radius: 0.4em;
+  padding: 0.4375rem 0.875rem;
+}
+.input__wrapper .input:focus {
+  border-color: rgb(105, 108, 255);
+  box-shadow: 0 0 0.25rem 0.05rem rgba(255, 255, 255, 0.1);
+}
+.input__wrapper .input__label {
+  font-size: 0.9rem;
+  padding-bottom: 0.3rem;
+  color: #babad1;
+  text-transform: uppercase;
+}
+.input__wrapper .input__label__req::after {
+  padding-left: 0.2rem;
+  content: "*";
+}
+
+.select {
+  background-color: #2b2c40;
+  color: #a0a0c0;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.53;
+  outline: none;
+  border: none;
+  border: 1px solid #444564;
+  border-radius: 0.4em;
+  padding: 0.4375rem 0.875rem;
+  min-width: 10rem;
+}
+.select:focus {
+  border-color: rgb(105, 108, 255);
+  box-shadow: 0 0 0.25rem 0.05rem rgba(255, 255, 255, 0.1);
 }
 
 .foot {
@@ -287,20 +357,4 @@ body {
   color: #a0a0c0;
   font-family: "Poppins", sans-serif;
   padding: 0.5em 0;
-}
-.auth__input {
-  display: block;
-  width: 100%;
-  color: #babad1;
-  padding: 0.5em 1em;
-  margin-bottom: 1em;
-  outline: none;
-  border: 1px solid #a0a0c0;
-  background-color: transparent;
-  border: 0px;
-  outline: none;
-  box-shadow: none;
-}
-.auth__input:focus {
-  background-color: transparent;
 }/*# sourceMappingURL=Style.css.map */
