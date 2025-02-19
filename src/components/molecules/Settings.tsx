@@ -10,10 +10,10 @@ export const SettingsBar = ():React.JSX.Element => {
 
   return (
     <div className="settings">
-      <Button buttonClick={handleDarkMode} buttonClass={"settings_button"} ><Sun/></Button>
-      <Button buttonClick={handleNotifications} buttonClass={"settings_button"} ><Bell/></Button>
-      <Button buttonClick={handleFullScreen} buttonClass={"settings_button"} ><SquareDashed/></Button>
-      <Button buttonClick={handleSettings} buttonClass={"settings_button"} ><Settings /></Button>
+      <Button type={"button"} onClick={handleDarkMode}  ><Sun/></Button>
+      <Button type={"button"} onClick={handleNotifications}  ><Bell/></Button>
+      <Button type={"button"} onClick={handleFullScreen}  ><SquareDashed/></Button>
+      <Button type={"button"} onClick={handleSettings}  ><Settings /></Button>
 
     </div>
   )

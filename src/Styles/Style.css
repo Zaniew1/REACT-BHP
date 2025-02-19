@@ -60,6 +60,99 @@ body {
   color: rgb(113, 221, 55);
 }
 
+.button__gray, .button__blue, .button__delete, .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 0.375rem;
+  border: 1px solid transparent;
+  padding: 0.4375rem 0.9rem;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  margin: 0 1rem;
+  height: 3rem;
+}
+
+.button {
+  color: #a0a0c0;
+  background-color: transparent;
+}
+.button:hover {
+  color: #babad1;
+}
+.button__delete {
+  padding: 0.5rem 1.4rem;
+  color: rgb(182, 31, 5);
+  background: rgb(77, 47, 58);
+  border-color: transparent;
+  font-size: 1rem;
+}
+.button__delete:hover {
+  border-color: transparent;
+  background: #e6381a;
+  color: #fff;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 62, 29, 0.4);
+  transform: translateY(-1px);
+}
+.button__delete:disabled {
+  box-shadow: none;
+  cursor: auto;
+  transform: none;
+  color: rgb(182, 31, 5);
+  background: rgb(77, 47, 58);
+}
+.button__delete svg {
+  margin: 0 0.5rem 0 0.3rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.button__blue {
+  color: #fff;
+  background-color: #696cff;
+  border-color: #696cff;
+  font-size: 1rem;
+  font-weight: 400;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+}
+.button__blue:hover {
+  background-color: #5c5eff;
+  transform: translateY(-0.1rem);
+}
+.button__blue svg {
+  margin: 0 0.5rem 0 0.3rem;
+}
+.button__blue:disabled {
+  box-shadow: none;
+  cursor: auto;
+  transform: none;
+  background-color: #696cff;
+  border-color: #696cff;
+}
+.button__gray {
+  color: #8592a3;
+  border-color: transparent;
+  background: #393c50;
+}
+.button__gray:hover {
+  border-color: transparent;
+  background: #788393;
+  color: #fff;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(133, 146, 163, 0.4);
+  transform: translateY(-1px);
+}
+.button__gray:disabled {
+  color: #8592a3;
+  border-color: transparent;
+  background: #393c50;
+  transform: none;
+  cursor: auto;
+  box-shadow: none;
+}
+.button__gray svg {
+  margin: 0 0.5rem 0 0.3rem;
+}
+
 .logo {
   display: flex;
   justify-content: center;
@@ -132,27 +225,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-}
-.settings_button {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-direction: row;
-  font-weight: 400;
-  line-height: 1.53;
-  border-radius: 0.375rem;
-  border: 1px solid transparent;
-  padding: 0.4375rem 1.25rem;
-  transition: 0.2s ease-in-out;
-  cursor: pointer;
-  color: #a0a0c0;
-  padding: 0 0.5em;
-  font-size: 2.2em;
-  background-color: transparent;
-}
-.settings_button:hover {
-  transform: scale(1.1);
-  color: #dddde9;
 }
 
 .input__wrapper {

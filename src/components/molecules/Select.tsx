@@ -12,7 +12,7 @@ type SelectType = {
 
 export const Select = (props: SelectType):React.JSX.Element => {
   const selectRef = useRef<HTMLSelectElement>(null);
-  const handleInputChange = () => {                  
+  const handleSelectChange = () => {                  
     if (selectRef.current) {
       props.selectValue(selectRef.current.value);
     }
@@ -20,7 +20,7 @@ export const Select = (props: SelectType):React.JSX.Element => {
   return (
     <div className={props.wrapperClass ?? "input__wrapper"}>
         <label className={props.labelClass ?? "input__label"}  htmlFor={props.selectId}>{props.labelText}</label>
-        <select ref={selectRef} onChange={handleInputChange}  id={props.selectId}  className={props.selectClass ?? "select"}>
+        <select ref={selectRef} onChange={handleSelectChange}  id={props.selectId}  className={props.selectClass ?? "select"}>
           {props.selectOptions.map((option, index)=>{
             return <option key={option.value+index} value={option.value}>{option.text}</option>
           })}
