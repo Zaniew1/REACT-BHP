@@ -3,6 +3,7 @@ import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import {customStyles} from "./SelectStyles"
 import { SelectOptionsType, SelectType } from './SelectTypes';
+import { Label } from '../Label/Label';
 
 const animatedComponents = makeAnimated();
 
@@ -19,23 +20,22 @@ export const SelectWithSearch = (props: SelectType):React.JSX.Element => {
     }, [options]);
   
   return (
-    <div className={props.wrapperClass ?? "input__wrapper"}>
-        <label className={`${props.labelClass ?? "input__label"} ${props.isRequired ? "input__label__req":""}`}   htmlFor={props.id}>{props.labelText}</label>
-        <Select
-            id={props.id}
-            closeMenuOnSelect={false}
-            components={animatedComponents}
-            defaultValue={props.defaultValue}
-            options={props.options}
-            styles={customStyles}
-            isMulti={props.isMulti ?? false}
-            isDisabled={props.isDisabled ?? false}
-            isLoading={props.isLoading ?? false}
-            isClearable={props.isClearable ?? false}
-            isSearchable={props.isSearchable ?? false}
-            required={props.isRequired ?? false}
-            onChange={setOptions}
-        />
-    </div>
+    <Label id={props.id} labelClass={props.labelClass}  wrapperClass={props.wrapperClass} required={props.isRequired} labelText={props.labelText}>
+      <Select
+          id={props.id}
+          closeMenuOnSelect={false}
+          components={animatedComponents}
+          defaultValue={props.defaultValue}
+          options={props.options}
+          styles={customStyles}
+          isMulti={props.isMulti ?? false}
+          isDisabled={props.isDisabled ?? false}
+          isLoading={props.isLoading ?? false}
+          isClearable={props.isClearable ?? false}
+          isSearchable={props.isSearchable ?? false}
+          required={props.isRequired ?? false}
+          onChange={setOptions}
+      />
+    </Label>
   )
 }

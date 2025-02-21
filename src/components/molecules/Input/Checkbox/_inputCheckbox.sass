@@ -1,0 +1,56 @@
+.checkbox
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  margin-bottom: 1em
+  &__label
+    order: 1
+    font-size: 1rem
+    padding: 0 0 0 0.5rem
+    color: $text-whiter-color
+    &__req::after
+      padding-left: 0.2rem
+      content: "*"
+  &__wrapper
+    position: relative
+    width: 4rem
+    height: 2rem
+    &__input
+      position: absolute
+      width: 4rem
+      height: 2rem
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      opacity: 0
+      cursor: pointer
+      z-index: 4
+    &__switch
+        position: absolute
+        width: 4rem
+        height: 2rem
+        top: 50%
+        left: 50%
+        z-index: 3
+        transform: translate(-50%, -50%)
+        border-radius: 15px
+        background-color: #2b2c3f
+        border: 1px solid #696cff
+        box-shadow: 0 2px 4px 0 rgba(105, 108, 255, 0.4)
+        transition: .2s ease-in-out
+        &__dot
+            position: absolute
+            width: 45%
+            height: 90%
+            top: 50%
+            left: 50%
+            background-color: #696cff
+            border-radius: 50%
+            transition: .2s ease-in-out
+            transform: translate(-100%, -50%)
+    input:checked + &__switch
+        background-color: #696cff
+    input:checked + &__switch &__switch__dot
+        transform: translate(0, -50%)
+        background-color: #fff
