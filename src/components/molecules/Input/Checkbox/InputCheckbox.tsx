@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Label } from '../../Label/Label';
 type InputCheckboxType = {
     value: (value: boolean) => void;
     id: string;
+    name: string;
     default?: boolean
     labelText?:string;
     minLength?: number;
@@ -23,7 +24,7 @@ export const InputCheckbox = (props:InputCheckboxType):React.JSX.Element => {
   return (
     <Label id={props.id} labelClass={props.labelClass ?? "checkbox__label"}  wrapperClass={props.wrapperClass ?? "checkbox"} required={props.required} labelText={props.labelText}>
       <div className={"checkbox__wrapper"}>
-        <input checked={props.default} type="checkbox" onChange={handleInputChange} ref={inputRef} id={props.id}  className={`${"checkbox__wrapper__input"} ${props.required ? "input_required":""}`} required={props.required} />
+        <input name={props.name} checked={props.default} type="checkbox" onChange={handleInputChange} ref={inputRef} id={props.id}  className={`${"checkbox__wrapper__input"} ${props.required ? "input_required":""}`} required={props.required} />
         <div className={"checkbox__wrapper__switch"}>
           <div className={"checkbox__wrapper__switch__dot"}></div>
         </div>
