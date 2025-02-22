@@ -344,6 +344,67 @@ input:checked + .checkbox__wrapper__switch .checkbox__wrapper__switch__dot {
   box-shadow: 0 0 0.25rem 0.05rem rgba(255, 255, 255, 0.1);
 }
 
+.flatpickr-calendar {
+  font-family: "Poppins", sans-serif;
+  background-color: #2b2c3f;
+}
+.flatpickr-calendar .flatpickr-months .flatpickr-prev-month:hover svg {
+  fill: rgb(105, 108, 255);
+}
+.flatpickr-calendar .flatpickr-months .flatpickr-next-month:hover svg {
+  fill: rgb(105, 108, 255);
+}
+.flatpickr-calendar .flatpickr-months .flatpickr-month {
+  background-color: #2b2c3f;
+  color: #a0a0c0;
+}
+.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months {
+  background-color: #2b2c3f;
+}
+.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
+  background-color: #2b2c3f;
+  color: #a0a0c0;
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays .flatpickr-weekdaycontainer .flatpickr-weekday {
+  color: #a0a0c0;
+  background-color: #2b2c3f;
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day {
+  color: #a0a0c0;
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .selected {
+  background: transparent;
+  box-shadow: none;
+  color: rgb(105, 108, 255);
+  border-color: rgb(105, 108, 255);
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .prevMonthDay {
+  color: #444566;
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .nextMonthDay {
+  color: #444566;
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .startRange {
+  box-shadow: none;
+  background: transparent;
+  border-color: rgb(105, 108, 255);
+  color: rgb(105, 108, 255);
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .endRange {
+  box-shadow: none;
+  background: transparent;
+  border-color: rgb(105, 108, 255);
+  color: rgb(105, 108, 255);
+}
+.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .inRange {
+  background: transparent;
+  box-shadow: none;
+}
+
+.ql-stroke {
+  stroke: #a0a0c0;
+}
+
 .foot {
   display: flex;
   justify-content: space-between;

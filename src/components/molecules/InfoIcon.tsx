@@ -1,18 +1,18 @@
-import React from 'react'
-import { Paragraph } from '../atoms/Paragraph'
+import React from 'react';
+import { Paragraph } from '../atoms/Paragraph';
 
 type InfoIconType = {
-    icon: React.ReactNode;
-    text: string
-    quantity: number
-}
+  icon: React.ReactNode;
+  text: string;
+  quantity: number;
+};
 
-export const InfoIcon = (props:InfoIconType):React.JSX.Element => {
+export const InfoIcon = (props: InfoIconType): React.JSX.Element => {
   return (
     <div className={'infoIcon'}>
-        {props.icon}
-        <Paragraph paragraphText={props.text}/>
-        <Paragraph paragraphText={String(props.quantity)}/>
+      {props.icon}
+      <Paragraph paragraphText={props.text} />
+      <Paragraph paragraphText={String(props.quantity)} />
     </div>
-  )
-}
+  );
+};

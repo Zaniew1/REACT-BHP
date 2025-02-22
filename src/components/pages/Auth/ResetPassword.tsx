@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const ResetPassword = ():React.JSX.Element => {
-  return (
-    <div>ResetPassword</div>
-  )
-}
+const ResetPassword = (): React.JSX.Element => {
+  return <div>ResetPassword</div>;
+};
 
-export default ResetPassword
+export default ResetPassword;

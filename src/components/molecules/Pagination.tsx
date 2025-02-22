@@ -1,7 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-export const Pagination = ():React.JSX.Element => {
-  return (
-    <div>Pagination</div>
-  )
-}
+export const Pagination = (): React.JSX.Element => {
+  return <div>Pagination</div>;
+};
