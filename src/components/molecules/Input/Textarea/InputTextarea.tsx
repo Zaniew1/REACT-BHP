@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Label } from '../../Label/Label';
@@ -9,14 +9,16 @@ type InputTextareaType = {
   labelText?: string;
   labelClass?: string;
   wrapperClass?: string;
-  dateFormat?: string;
-  minDate?: string | Date;
-  maxDate?: string | Date;
+  minLength?: number;
+  maxLength?: number;
 };
 
 export const InputTextarea = (props: InputTextareaType): React.JSX.Element => {
-  const handleInput = (value: string) => {
-    props.value(value);
+  const reactQuillRef = useRef<ReactQuill | null>(null);
+  const handleInput = () => {
+    if (reactQuillRef && reactQuillRef.current) {
+      props.value(String(reactQuillRef.current.value));
+    }
   };
   return (
     <Label
@@ -26,7 +28,12 @@ export const InputTextarea = (props: InputTextareaType): React.JSX.Element => {
       id={props.id}
     >
       <>
-        <ReactQuill id={props.id} theme="snow" value={props.default ?? ''} onChange={handleInput} />
+        <ReactQuill
+          ref={reactQuillRef}
+          id={props.id}
+          value={props.default}
+          onKeyDown={handleInput}
+        />
       </>
     </Label>
   );

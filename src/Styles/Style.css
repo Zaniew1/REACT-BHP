@@ -401,7 +401,25 @@ input:checked + .checkbox__wrapper__switch .checkbox__wrapper__switch__dot {
   box-shadow: none;
 }
 
-.ql-stroke {
+.quill .ql-toolbar {
+  border: 1px solid #a0a0c0;
+}
+.quill .ql-toolbar .ql-formats button svg {
+  stroke: #a0a0c0;
+}
+.quill .ql-toolbar .ql-formats button svg .ql-stroke {
+  stroke: #a0a0c0;
+}
+.quill .ql-toolbar .ql-formats .ql-header .ql-picker-label {
+  color: #a0a0c0;
+}
+.quill .ql-container {
+  border: 1px solid #a0a0c0;
+  background-color: transparent;
+  color: #a0a0c0;
+}
+
+.ql-snow .ql-stroke {
   stroke: #a0a0c0;
 }
 
