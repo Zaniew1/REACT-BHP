@@ -1,17 +1,21 @@
 import { useRef } from 'react';
-import { SelectWithSearch } from '../../molecules/Select/Select';
-import Select from 'react-select';
+import { Selectr } from '../../molecules/Select/Select';
+import { SelectInstance } from 'react-select';
+import { OptionType } from '../../molecules/Select/SelectTypes';
 
 export const ContainerCard: React.FC = (): JSX.Element => {
-  const inputRef = useRef<Select>(null);
-  console.log('1');
-  const handleCheckStatus = () => {};
+  const inputRef = useRef<SelectInstance<OptionType, false>>(null);
+  const handleCheckStatus = () => {
+    if (inputRef.current) {
+      console.log(inputRef.current.getValue());
+    }
+  };
   return (
     <main className="container">
-      <SelectWithSearch
+      <Selectr
         options={[
           { value: '111', label: '111' },
-          { value: '111', label: '111' },
+          { value: '123', label: '123' },
         ]}
         ref={inputRef}
         id={'12'}

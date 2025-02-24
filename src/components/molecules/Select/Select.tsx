@@ -1,13 +1,13 @@
 import { forwardRef } from 'react';
-import Select from 'react-select';
+import Select, { SelectInstance } from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { customStyles } from './SelectStyles';
-import { SelectType } from './SelectTypes';
+import { OptionType, SelectType } from './SelectTypes';
 import { Label } from '../Label/Label';
 
 const animatedComponents = makeAnimated();
 
-export const SelectWithSearch = forwardRef<StateManagedSelect, SelectType>((props, ref) => {
+export const Selectr = forwardRef<SelectInstance<OptionType, false>, SelectType>((props, ref) => {
   return (
     <Label
       id={props.id}
