@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import { forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputNumberType = {
-  value: (value: string) => void;
   default?: number;
   id: string;
   labelText?: string;
@@ -13,13 +12,7 @@ type InputNumberType = {
   wrapperClass?: string;
   step?: number;
 };
-export const InputNumber = (props: InputNumberType): React.JSX.Element => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const handleInputChange = () => {
-    if (inputRef.current) {
-      props.value(inputRef.current.value);
-    }
-  };
+export const InputNumber = forwardRef<HTMLInputElement, InputNumberType>((props, ref) => {
   return (
     <Label
       id={props.id}
@@ -30,9 +23,8 @@ export const InputNumber = (props: InputNumberType): React.JSX.Element => {
     >
       <input
         defaultValue={props.default}
-        onChange={handleInputChange}
         step={props.step}
-        ref={inputRef}
+        ref={ref}
         id={props.id}
         type={'number'}
         className={`${props.inputClass ?? 'input'} ${props.required ? 'input_required' : ''}`}
@@ -42,4 +34,4 @@ export const InputNumber = (props: InputNumberType): React.JSX.Element => {
       />
     </Label>
   );
-};
+});

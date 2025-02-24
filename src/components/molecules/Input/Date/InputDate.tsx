@@ -1,11 +1,10 @@
-import React from 'react';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { Label } from '../../Label/Label';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/dark.css';
 import { Polish } from 'flatpickr/dist/l10n/pl.js';
 
 type InputDateType = {
-  value: (value: number[]) => void;
   id: string;
   mode?: 'single' | 'multiple' | 'range';
   default?: number[];
@@ -17,13 +16,9 @@ type InputDateType = {
   minDate?: string | Date;
   maxDate?: string | Date;
 };
-export const InputDate = (props: InputDateType): React.JSX.Element => {
-  const handleInput = (date: Date[]) => {
-    const dates = date.map((el) => {
-      return new Date(el).getTime();
-    });
-    props.value(dates);
-  };
+export const InputDate = forwardRef<HTMLInputElement, InputDateType>((props, ref) => {
+  const flatpickrRef = useRef<HTMLInputElement | null>(null);
+  useImperativeHandle(ref, () => flatpickrRef.current as HTMLInputElement);
 
   return (
     <Label
@@ -45,10 +40,10 @@ export const InputDate = (props: InputDateType): React.JSX.Element => {
           minDate: props.minDate,
           maxDate: props.maxDate,
         }}
-        onChange={(date: Date[]) => {
-          handleInput(date);
+        onReady={(_, __, flatpickrInstance) => {
+          flatpickrRef.current = flatpickrInstance.input;
         }}
       />
     </Label>
   );
-};
+});

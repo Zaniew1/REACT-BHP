@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sun, Bell, SquareDashed, Settings } from 'lucide-react';
-import { Button } from '../atoms/Button';
+import { Button } from '../../atoms/Button/Button';
 export const SettingsBar = (): React.JSX.Element => {
   const handleDarkMode = () => {
     console.log('darkmode');

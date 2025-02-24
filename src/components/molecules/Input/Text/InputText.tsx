@@ -1,9 +1,7 @@
-import React, { useRef } from 'react';
+import { forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
-  value: (value: string) => void;
   id: string;
-  type: 'text' | 'email' | 'password';
   labelText?: string;
   minLength?: number;
   maxLength?: number;
@@ -12,13 +10,7 @@ type InputTextType = {
   inputClass?: string;
   wrapperClass?: string;
 };
-export const InputText = (props: InputTextType): React.JSX.Element => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const handleInputChange = () => {
-    if (inputRef.current) {
-      props.value(inputRef.current.value);
-    }
-  };
+export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   return (
     <Label
       id={props.id}
@@ -28,10 +20,9 @@ export const InputText = (props: InputTextType): React.JSX.Element => {
       labelText={props.labelText}
     >
       <input
-        onChange={handleInputChange}
-        ref={inputRef}
+        ref={ref}
         id={props.id}
-        type={props.type}
+        type={'text'}
         className={`${props.inputClass ?? 'input'} ${props.required ? 'input_required' : ''}`}
         required={props.required}
         minLength={props.minLength}
@@ -39,4 +30,4 @@ export const InputText = (props: InputTextType): React.JSX.Element => {
       />
     </Label>
   );
-};
+});

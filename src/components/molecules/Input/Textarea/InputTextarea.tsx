@@ -1,9 +1,8 @@
-import React, { useRef } from 'react';
+import { forwardRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Label } from '../../Label/Label';
 type InputTextareaType = {
-  value: (value: string) => void;
   id: string;
   default?: string;
   labelText?: string;
@@ -13,13 +12,7 @@ type InputTextareaType = {
   maxLength?: number;
 };
 
-export const InputTextarea = (props: InputTextareaType): React.JSX.Element => {
-  const reactQuillRef = useRef<ReactQuill | null>(null);
-  const handleInput = () => {
-    if (reactQuillRef && reactQuillRef.current) {
-      props.value(String(reactQuillRef.current.value));
-    }
-  };
+export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, ref) => {
   return (
     <Label
       labelText={props.labelText}
@@ -28,13 +21,8 @@ export const InputTextarea = (props: InputTextareaType): React.JSX.Element => {
       id={props.id}
     >
       <>
-        <ReactQuill
-          ref={reactQuillRef}
-          id={props.id}
-          value={props.default}
-          onKeyDown={handleInput}
-        />
+        <ReactQuill ref={ref} id={props.id} value={props.default} />
       </>
     </Label>
   );
-};
+});

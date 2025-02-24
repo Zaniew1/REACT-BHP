@@ -1,23 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
-import { customStyles } from "./SelectStyles";
-import { SelectOptionsType, SelectType } from "./SelectTypes";
-import { Label } from "../Label/Label";
+import { forwardRef } from 'react';
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+import { customStyles } from './SelectStyles';
+import { SelectType } from './SelectTypes';
+import { Label } from '../Label/Label';
 
 const animatedComponents = makeAnimated();
 
-export const SelectWithSearch = (props: SelectType): React.JSX.Element => {
-  const [options, setOptions] = useState<SelectOptionsType>(props.defaultValue ?? null);
-  const valueRef = useRef(props.value);
-
-  useEffect(() => {
-    valueRef.current = props.value;
-  }, [props.value]);
-  useEffect(() => {
-    valueRef.current(options);
-  }, [options]);
-
+export const SelectWithSearch = forwardRef<StateManagedSelect, SelectType>((props, ref) => {
   return (
     <Label
       id={props.id}
@@ -27,6 +17,7 @@ export const SelectWithSearch = (props: SelectType): React.JSX.Element => {
       labelText={props.labelText}
     >
       <Select
+        ref={ref}
         id={props.id}
         closeMenuOnSelect={false}
         components={animatedComponents}
@@ -39,8 +30,7 @@ export const SelectWithSearch = (props: SelectType): React.JSX.Element => {
         isClearable={props.isClearable ?? false}
         isSearchable={props.isSearchable ?? false}
         required={props.isRequired ?? false}
-        onChange={setOptions}
       />
     </Label>
   );
-};
+});

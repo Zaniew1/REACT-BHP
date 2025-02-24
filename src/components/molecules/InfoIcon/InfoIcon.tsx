@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paragraph } from '../atoms/Paragraph';
+import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 
 type InfoIconType = {
   icon: React.ReactNode;

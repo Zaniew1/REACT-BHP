@@ -1,22 +1,15 @@
-import React, { useRef } from 'react';
+import { forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputColorType = {
-  value: (value: string) => void;
   id: string;
-  default: string;
+  default?: string;
   labelText?: string;
   required?: boolean;
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
 };
-export const InputColor = (props: InputColorType): React.JSX.Element => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const handleInputChange = () => {
-    if (inputRef.current) {
-      props.value(inputRef.current.value);
-    }
-  };
+export const InputColor = forwardRef<HTMLInputElement, InputColorType>((props, ref) => {
   return (
     <Label
       id={props.id}
@@ -26,9 +19,8 @@ export const InputColor = (props: InputColorType): React.JSX.Element => {
       labelText={props.labelText}
     >
       <input
-        defaultValue={props.default}
-        onBlur={handleInputChange}
-        ref={inputRef}
+        defaultValue={props.default ?? '#000'}
+        ref={ref}
         id={props.id}
         type={'color'}
         className={`${props.inputClass ?? 'input__color'} ${
@@ -38,4 +30,4 @@ export const InputColor = (props: InputColorType): React.JSX.Element => {
       />
     </Label>
   );
-};
+});
