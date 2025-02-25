@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { InputPhone } from '../../molecules/Input/Phone/InputPhone';
+import { Table } from '../Table/Table';
 
 export const ContainerCard: React.FC = (): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -10,7 +10,7 @@ export const ContainerCard: React.FC = (): JSX.Element => {
   };
   return (
     <main className="container">
-      <InputPhone ref={inputRef} id={'12'} />
+      <Table ref={inputRef} />
       <br />
       <button onClick={handleCheckStatus}>Check Status</button>
     </main>
