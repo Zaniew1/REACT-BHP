@@ -1,25 +1,16 @@
 import { useRef } from 'react';
-import { Selectr } from '../../molecules/Select/Select';
-import { SelectInstance } from 'react-select';
-import { OptionType } from '../../molecules/Select/SelectTypes';
+import { InputPhone } from '../../molecules/Input/Phone/InputPhone';
 
 export const ContainerCard: React.FC = (): JSX.Element => {
-  const inputRef = useRef<SelectInstance<OptionType, false>>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const handleCheckStatus = () => {
     if (inputRef.current) {
-      console.log(inputRef.current.getValue());
+      console.log(inputRef.current.value);
     }
   };
   return (
     <main className="container">
-      <Selectr
-        options={[
-          { value: '111', label: '111' },
-          { value: '123', label: '123' },
-        ]}
-        ref={inputRef}
-        id={'12'}
-      />
+      <InputPhone ref={inputRef} id={'12'} />
       <br />
       <button onClick={handleCheckStatus}>Check Status</button>
     </main>

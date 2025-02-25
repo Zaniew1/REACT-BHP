@@ -1,5 +1,5 @@
 export type ButtonType = {
-  class?: string;
+  class?: 'button--gray' | 'button--blue' | 'button--red';
   children?: React.ReactNode | string;
   onClick: () => void;
   disabled?: boolean;

@@ -30,7 +30,7 @@ body {
   cursor: pointer;
 }
 
-.icon-green, .icon-yellow, .icon-grey, .icon-red {
+.icon--green, .icon--yellow, .icon--grey, .icon--red {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,27 +40,27 @@ body {
   border-radius: 0.4em;
 }
 
-.icon-red {
+.icon--red {
   background-color: rgb(77, 47, 58);
   color: rgb(255, 62, 29);
 }
 
-.icon-grey {
+.icon--grey {
   background-color: rgb(57, 60, 80);
   color: rgb(133, 146, 163);
 }
 
-.icon-yellow {
+.icon--yellow {
   background-color: rgb(77, 64, 54);
   color: rgb(255, 171, 0);
 }
 
-.icon-green {
+.icon--green {
   background-color: rgb(54, 72, 63);
   color: rgb(113, 221, 55);
 }
 
-.button__gray, .button__blue, .button__red, .button {
+.button--gray, .button--blue, .button--red, .button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,33 +81,33 @@ body {
 .button:hover {
   color: #babad1;
 }
-.button__red {
+.button--red {
   padding: 0.5rem 1.4rem;
   color: rgb(182, 31, 5);
   background: rgb(77, 47, 58);
   border-color: transparent;
   font-size: 1rem;
 }
-.button__red:hover {
+.button--red:hover {
   border-color: transparent;
   background: #e6381a;
   color: #fff;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 62, 29, 0.4);
   transform: translateY(-1px);
 }
-.button__red:disabled {
+.button--red:disabled {
   box-shadow: none;
   cursor: auto;
   transform: none;
   color: rgb(182, 31, 5);
   background: rgb(77, 47, 58);
 }
-.button__red svg {
+.button--red svg {
   margin: 0 0.5rem 0 0.3rem;
   height: 1.5rem;
   width: 1.5rem;
 }
-.button__blue {
+.button--blue {
   color: #fff;
   background-color: #696cff;
   border-color: #696cff;
@@ -115,33 +115,33 @@ body {
   font-weight: 400;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
 }
-.button__blue:hover {
+.button--blue:hover {
   background-color: #5c5eff;
   transform: translateY(-0.1rem);
 }
-.button__blue svg {
+.button--blue svg {
   margin: 0 0.5rem 0 0.3rem;
 }
-.button__blue:disabled {
+.button--blue:disabled {
   box-shadow: none;
   cursor: auto;
   transform: none;
   background-color: #696cff;
   border-color: #696cff;
 }
-.button__gray {
+.button--gray {
   color: #8592a3;
   border-color: transparent;
   background: #393c50;
 }
-.button__gray:hover {
+.button--gray:hover {
   border-color: transparent;
   background: #788393;
   color: #fff;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(133, 146, 163, 0.4);
   transform: translateY(-1px);
 }
-.button__gray:disabled {
+.button--gray:disabled {
   color: #8592a3;
   border-color: transparent;
   background: #393c50;
@@ -149,7 +149,7 @@ body {
   cursor: auto;
   box-shadow: none;
 }
-.button__gray svg {
+.button--gray svg {
   margin: 0 0.5rem 0 0.3rem;
 }
 
@@ -426,6 +426,60 @@ input:checked + .checkbox__wrapper__switch .checkbox__wrapper__switch__dot {
 
 .ql-snow .ql-stroke {
   stroke: #a0a0c0;
+}
+
+.phone_wrapper {
+  display: flex;
+  background-color: #2b2c40;
+  color: #a0a0c0;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.53;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #444564;
+  border-radius: 0.4em;
+}
+.phone_wrapper:focus {
+  border-color: rgb(105, 108, 255);
+  box-shadow: 0 0 0.25rem 0.05rem rgba(255, 255, 255, 0.1);
+}
+.phone_wrapper .phone_area {
+  display: flex;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.53;
+  color: rgb(163, 164, 204);
+  text-align: center;
+  background-color: rgb(43, 44, 64);
+  padding: 0.4375rem 0.875rem;
+  white-space: nowrap;
+  border-right: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(68, 69, 100);
+  -o-border-image: initial;
+     border-image: initial;
+  border-radius: 0.4em 0 0 0.4rem;
+}
+.phone_wrapper .phone_input {
+  background-color: #2b2c40;
+  color: #a0a0c0;
+  font-weight: 400;
+  font-size: 0.9375rem;
+  line-height: 1.53;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border: 1px solid #444564;
+  border-radius: 0 0.4em 0.4rem 0;
+  padding: 0.4375rem 0.875rem;
+}
+.phone_wrapper .phone_input:focus {
+  border-color: rgb(105, 108, 255);
+  box-shadow: 0 0 0.25rem 0.05rem rgba(255, 255, 255, 0.1);
 }
 
 .foot {
