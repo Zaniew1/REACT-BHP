@@ -7,7 +7,11 @@ export type LinkType = {
 
 export const Link = (props: LinkType): React.JSX.Element => {
   return (
-    <a className={props.linkClass} href={props.linkHref} target={props.linkTarget ?? '_blank'}>
+    <a
+      className={props.linkClass ?? 'link'}
+      href={props.linkHref}
+      target={props.linkTarget ?? '_blank'}
+    >
       {props.children}
     </a>
   );

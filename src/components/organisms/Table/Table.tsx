@@ -1,37 +1,52 @@
-import { useTheme } from '@table-library/react-table-library/theme';
-import { getTheme } from '@table-library/react-table-library/baseline';
-import { CompactTable } from '@table-library/react-table-library/compact';
+import {
+  Table,
+  Header,
+  HeaderRow,
+  Body,
+  Row,
+  Cell,
+  HeaderCell,
+} from '@table-library/react-table-library/table';
 import { forwardRef } from 'react';
-import { useSort } from '@table-library/react-table-library/sort';
-import { useRowSelect } from '@table-library/react-table-library/select';
-const nodes = [
-  {
-    id: '0',
-    name: 'Zan-it',
-    adress: 'Klepacze 15-635 polna 11',
-    nip: 'TASK',
-    coworkers: true,
-  },
-];
-
-const COLUMNS = [
-  { label: 'Nazwa', renderCell: (item) => item.name, sort: { sortKey: 'TASK' }, select: true },
-  {
-    label: 'Adres',
-    renderCell: (item) => item.adress,
-    sort: { sortKey: 'DEADLINE' },
-  },
-  { label: 'NIP', renderCell: (item) => 'PL' + item.nip, sort: { sortKey: 'TYPE' } },
-  {
-    label: 'Współpracownicy',
-    renderCell: (item) => item.coworkers,
-    sort: { sortKey: 'COMPLETE' },
-  },
-  { label: 'Akcje', renderCell: (item) => item.id },
-];
-
-export const Table = forwardRef((props, ref) => {
+import {
+  HeaderCellSelect,
+  CellSelect,
+  useRowSelect,
+} from '@table-library/react-table-library/select';
+import { COLUMNS, nodes } from './TableCompany';
+import {
+  TableStyles,
+  HeaderStyles,
+  HeaderCellStyles,
+  HeaderRowStyles,
+  RowStyles,
+  CellStyles,
+  EvenRowStyles,
+  HeaderSelectRowStyles,
+  CellSelectStyles,
+} from './TableStyles';
+import { HeaderCellSort, useSort } from '@table-library/react-table-library/sort';
+import { Link } from '../../atoms/Link/Link';
+import { ArrowDown, ArrowDownUp, ArrowUp } from 'lucide-react';
+import { Button } from '../../atoms/Button/Button';
+type NodesType = {
+  id: number;
+  name: string;
+  adress: string;
+  nip: number;
+  coworkers: boolean;
+}[];
+type TableType = {
+  id: number;
+  pagination?: boolean;
+  sorting?: boolean;
+  nodes?: NodesType;
+  columns?: [];
+  limit?: number;
+};
+export const MyTable = forwardRef((_props: TableType, ref) => {
   const data = { nodes };
+  // const LIMIT = 2;
 
   const sort = useSort(
     data,
@@ -39,69 +54,81 @@ export const Table = forwardRef((props, ref) => {
       onChange: onSortChange,
     },
     {
+      sortIcon: {
+        margin: '0px',
+        iconDefault: <ArrowDownUp />,
+        iconUp: <ArrowUp />,
+        iconDown: <ArrowDown />,
+      },
       sortFns: {
-        TASK: (array) => array.sort((a, b) => a.name.localeCompare(b.name)),
-        DEADLINE: (array) => array.sort((a, b) => a.deadline - b.deadline),
-        TYPE: (array) => array.sort((a, b) => a.type.localeCompare(b.type)),
-        COMPLETE: (array) => array.sort((a, b) => a.isComplete - b.isComplete),
+        ID: (array) => array.sort((a, b) => Number(a.id) - Number(b.id)),
+        NAME: (array) => array.sort((a, b) => a.name.localeCompare(b.name)),
+        ADRESS: (array) => array.sort((a, b) => a.adress.localeCompare(b.adress)),
+        NIP: (array) => array.sort((a, b) => Number(a.nip) - Number(b.nip)),
       },
     },
   );
-  const select = useRowSelect(data, {
-    onChange: onselectionchange,
-  });
   function onSortChange(action, state) {
     console.log(action, state);
   }
-  const theme = useTheme({
-    HeaderRow: `
-        .th {
-          background-color: #2b2c3f;
-          border-bottom: 1px solid #a0a8ae;
-        }
-      `,
-    BaseCell: `
-        &:not(:last-of-type) {
-          border-right: 1px solid #a0a8ae;
-        }
-
-        padding: 8px 16px;
-      `,
+  const handle = () => {};
+  const select = useRowSelect(data, {
+    onChange: onSelectChange,
   });
-  //   const theme = useTheme([
-  //     getTheme(),
-  //     {
-  //       HeaderRow: `
-  //               background-color: #2b2c3f;
-  //               color: #babad1;
-  //               text-transform: uppercase;
-  //               font-weight: 300;
-  //               border-color: #babad1
-  //             `,
-  //       Row: `
-  //             color: #a0a0c0;
-  //             &:hover{
-  //                 color: #a0a0c0;
-  //             }
-  //               &:nth-of-type(odd) {
-  //                 background-color: #2b2c3f;
-  //               }
-
-  //               &:nth-of-type(even) {
-  //                 background-color: #eaf5fd;
-  //               }
-  //             `,
-  //     },
-  //   ]);
-
+  function onSelectChange(action, state) {
+    console.log(action, state);
+  }
   return (
-    <CompactTable
-      ref={ref}
-      theme={theme}
-      columns={COLUMNS}
-      sort={sort}
-      select={select}
-      data={data}
-    />
+    <>
+      <label htmlFor="search">
+        Search by Task:&nbsp;
+        <input id="search" type="text" value={''} onChange={handle} />
+      </label>
+      <br />
+
+      <Table style={TableStyles} ref={ref} data={data} sort={sort} select={select}>
+        {(nodes: NodesType) => (
+          <>
+            <Header style={HeaderStyles}>
+              <HeaderRow style={HeaderRowStyles}>
+                <HeaderCellSelect style={HeaderSelectRowStyles} />
+                <HeaderCellSort style={HeaderCellStyles} sortKey="ID">
+                  Id
+                </HeaderCellSort>
+                <HeaderCellSort style={HeaderCellStyles} sortKey="NAME">
+                  Nazwa
+                </HeaderCellSort>
+                <HeaderCellSort style={HeaderCellStyles} sortKey="ADRESS">
+                  Adres
+                </HeaderCellSort>
+                <HeaderCellSort style={HeaderCellStyles} sortKey="NIP">
+                  NIP
+                </HeaderCellSort>
+                <HeaderCell style={HeaderCellStyles}>Akcje</HeaderCell>
+              </HeaderRow>
+            </Header>
+
+            <Body>
+              {nodes.map((item, index: number) => (
+                <Row style={index % 2 == 0 ? RowStyles : EvenRowStyles} key={item.id} item={item}>
+                  <CellSelect item={item} />
+                  <Cell style={CellStyles}>{item.id}</Cell>
+                  <Cell style={CellStyles}>
+                    <Link linkHref={'/'}>{item.name}</Link>
+                  </Cell>
+                  <Cell style={CellStyles}>{item.adress}</Cell>
+                  <Cell style={CellStyles}>{item.nip}</Cell>
+                  <Cell style={CellStyles}>
+                    <span>
+                      <Button onClick={() => {}} type={'button'} />
+                    </span>
+                  </Cell>
+                </Row>
+              ))}
+            </Body>
+          </>
+        )}
+      </Table>
+    </>
   );
 });
