@@ -35,7 +35,8 @@ export const FirstElement = {
 export const RowStyles = {
   backgroundColor: 'rgba(53, 54, 78, 0.96)',
   padding: '0.8rem',
-  borderBottom: '1px solid #ddd',
+  border: '1px solid rgb(68, 69, 100)',
+  borderCollapse: 'collapse',
 };
 export const EvenRowStyles = {
   ...RowStyles,
@@ -43,21 +44,18 @@ export const EvenRowStyles = {
 };
 
 export const CellSelectStyles = {
-  borderBottom: '1px solid #ddd',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderBottom: '1px solid rgb(68, 69, 100)',
   border: '1px solid rgb(68, 69, 100)',
-  borderCollapse: 'collapse',
 };
 export const CellStyles = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   padding: '0.4rem',
-  borderBottom: '1px solid #ddd',
+  borderBottom: '1px solid rgb(68, 69, 100)',
   border: '1px solid rgb(68, 69, 100)',
   borderCollapse: 'collapse',
-};
-export const ArrowStyles = {
-  marginLeft: '5px',
-  color: 'lightblue',
-  fontSize: '0.8rem',
 };

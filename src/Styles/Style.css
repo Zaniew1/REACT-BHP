@@ -608,12 +608,16 @@ input:checked + .checkbox__wrapper__switch .checkbox__wrapper__switch__dot {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: "1px solid rgb(68, 69, 100)";
+  border-collapse: "collapse";
 }
 
 .css-klo8jl-CELL_CONTAINER_STYLE-Cell:nth-of-type(1) div {
   display: flex;
   justify-content: center;
   align-items: center;
+  border: "1px solid rgb(68, 69, 100)";
+  border-collapse: "collapse";
 }
 
 #page_home {

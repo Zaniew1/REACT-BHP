@@ -13,7 +13,7 @@ import {
   CellSelect,
   useRowSelect,
 } from '@table-library/react-table-library/select';
-import { COLUMNS, nodes } from './TableCompany';
+import { nodes } from './TableCompany';
 import {
   TableStyles,
   HeaderStyles,
@@ -111,7 +111,9 @@ export const MyTable = forwardRef((_props: TableType, ref) => {
             <Body>
               {nodes.map((item, index: number) => (
                 <Row style={index % 2 == 0 ? RowStyles : EvenRowStyles} key={item.id} item={item}>
-                  <CellSelect item={item} />
+                  <div style={CellSelectStyles}>
+                    <CellSelect item={item} />
+                  </div>
                   <Cell style={CellStyles}>{item.id}</Cell>
                   <Cell style={CellStyles}>
                     <Link linkHref={'/'}>{item.name}</Link>
