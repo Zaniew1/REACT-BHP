@@ -620,6 +620,29 @@ input:checked + .checkbox__wrapper__switch .checkbox__wrapper__switch__dot {
   border-collapse: "collapse";
 }
 
+.table__actions {
+  display: flex;
+  flex-direction: row;
+}
+.table__actions .link svg {
+  margin: 0.2rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: pointer;
+}
+.table__actions .link:hover {
+  color: #cbcbe2;
+}
+.table__actions .button svg {
+  margin: 0.2rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  cursor: pointer;
+}
+.table__actions .button:hover {
+  color: #cbcbe2;
+}
+
 #page_home {
   width: 100%;
   height: 100%;

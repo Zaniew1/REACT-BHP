@@ -29,6 +29,7 @@ import { HeaderCellSort, useSort } from '@table-library/react-table-library/sort
 import { Link } from '../../atoms/Link/Link';
 import { ArrowDown, ArrowDownUp, ArrowUp } from 'lucide-react';
 import { Button } from '../../atoms/Button/Button';
+import { TableActions } from './TableActions';
 type NodesType = {
   id: number;
   name: string;
@@ -121,9 +122,7 @@ export const MyTable = forwardRef((_props: TableType, ref) => {
                   <Cell style={CellStyles}>{item.adress}</Cell>
                   <Cell style={CellStyles}>{item.nip}</Cell>
                   <Cell style={CellStyles}>
-                    <span>
-                      <Button onClick={() => {}} type={'button'} />
-                    </span>
+                    <TableActions />
                   </Cell>
                 </Row>
               ))}
