@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputColorType = {
   id: string;
@@ -8,6 +8,7 @@ type InputColorType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  style?: CSSProperties;
 };
 export const InputColor = forwardRef<HTMLInputElement, InputColorType>((props, ref) => {
   return (
@@ -19,6 +20,7 @@ export const InputColor = forwardRef<HTMLInputElement, InputColorType>((props, r
       labelText={props.labelText}
     >
       <input
+        style={props.style}
         defaultValue={props.default ?? '#000'}
         ref={ref}
         id={props.id}

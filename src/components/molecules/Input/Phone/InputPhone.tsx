@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { CSSProperties, forwardRef, useState } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
   id: string;
@@ -9,6 +9,7 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  style?: CSSProperties;
 };
 export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [inputValue, setInputValue] = useState<string>('');
@@ -37,6 +38,7 @@ export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, re
         <div className={'phone_wrapper'}>
           <span className={'phone_area'}>+48</span>
           <input
+            style={props.style}
             ref={ref}
             value={inputValue}
             id={props.id}

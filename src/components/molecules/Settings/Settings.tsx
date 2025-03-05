@@ -17,16 +17,16 @@ export const SettingsBar = (): React.JSX.Element => {
 
   return (
     <div className="settings">
-      <Button type={'button'} onClick={handleDarkMode}>
+      <Button onClick={handleDarkMode}>
         <Sun />
       </Button>
-      <Button type={'button'} onClick={handleNotifications}>
+      <Button onClick={handleNotifications}>
         <Bell />
       </Button>
-      <Button type={'button'} onClick={handleFullScreen}>
+      <Button onClick={handleFullScreen}>
         <SquareDashed />
       </Button>
-      <Button type={'button'} onClick={handleSettings}>
+      <Button onClick={handleSettings}>
         <Settings />
       </Button>
     </div>

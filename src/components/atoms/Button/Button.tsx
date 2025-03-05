@@ -3,10 +3,10 @@ import { CSSProperties } from 'react';
 export type ButtonType = {
   class?: 'button--gray' | 'button--blue' | 'button--red';
   children?: React.ReactNode | string;
-  onClick: () => void;
+  onClick: (e:React.SyntheticEvent<EventTarget>) => void;
   style?: CSSProperties;
   disabled?: boolean;
-  type: 'button' | 'submit' | 'reset';
+  type?: 'button' | 'submit' | 'reset';
   form?: string;
   name?: string;
 };
@@ -19,6 +19,7 @@ export const Button = (props: ButtonType): React.JSX.Element => {
       form={props.form}
       onClick={props.onClick}
       disabled={props.disabled}
+      type={props.type ?? "button"} 
     >
       {props.children}
     </button>

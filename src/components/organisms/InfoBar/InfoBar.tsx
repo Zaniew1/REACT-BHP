@@ -10,66 +10,66 @@ export const InfoBar = (): React.JSX.Element => {
   return (
     <div className={'infoBar'}>
       <div className="infoBar_wrapper">
-        <Icon iconClass="infoBar_wrapper_icon">
+        <Icon class="icon--yellow">
           <GraduationCap />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
-          <Paragraph paragraphClass="infoBar_wrapper_text_paragraph" paragraphText="Szkolenia" />
+          <Paragraph class="infoBar_wrapper_text_paragraph" text="Szkolenia" />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText={trainingsThisYear}
+            class="infoBar_wrapper_text_paragraph"
+            text={trainingsThisYear}
           />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText="od początku roku"
+            class="infoBar_wrapper_text_paragraph"
+            text="od początku roku"
           />
         </div>
       </div>
       <div className="infoBar_wrapper">
-        <Icon iconClass="infoBar_wrapper_icon">
+        <Icon class="icon--grey">
           <ListTodo />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
-          <Paragraph paragraphClass="infoBar_wrapper_text_paragraph" paragraphText="Kontrole" />
+          <Paragraph class="infoBar_wrapper_text_paragraph" text="Kontrole" />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText={controllsThisYear}
+            class="infoBar_wrapper_text_paragraph"
+            text={controllsThisYear}
           />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText="od początku roku"
+            class="infoBar_wrapper_text_paragraph"
+            text="od początku roku"
           />
         </div>
       </div>
       <div className="infoBar_wrapper">
-        <Icon iconClass="infoBar_wrapper_icon">
+        <Icon class="icon--red">
           <TriangleAlert />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
-          <Paragraph paragraphClass="infoBar_wrapper_text_paragraph" paragraphText="Wypadki" />
+          <Paragraph class="infoBar_wrapper_text_paragraph" text="Wypadki" />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText={accidentsThisYear}
+            class="infoBar_wrapper_text_paragraph"
+            text={accidentsThisYear}
           />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText="od początku roku"
+            class="infoBar_wrapper_text_paragraph"
+            text="od początku roku"
           />
         </div>
       </div>
       <div className="infoBar_wrapper">
-        <Icon iconClass="infoBar_wrapper_icon">
+        <Icon class="icon--green">
           <ClipboardCheck />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
-          <Paragraph paragraphClass="infoBar_wrapper_text_paragraph" paragraphText="Ocena Ryzyka" />
+          <Paragraph class="infoBar_wrapper_text_paragraph" text="Ocena Ryzyka" />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText={accidentsThisYear}
+            class="infoBar_wrapper_text_paragraph"
+            text={accidentsThisYear}
           />
           <Paragraph
-            paragraphClass="infoBar_wrapper_text_paragraph"
-            paragraphText="od początku roku"
+            class="infoBar_wrapper_text_paragraph"
+            text="od początku roku"
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { Label } from '../../Label/Label';
@@ -10,6 +10,7 @@ type InputTextareaType = {
   wrapperClass?: string;
   minLength?: number;
   maxLength?: number;
+  style?: CSSProperties
 };
 
 export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, ref) => {
@@ -21,7 +22,7 @@ export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, r
       id={props.id}
     >
       <>
-        <ReactQuill ref={ref} id={props.id} value={props.default} />
+        <ReactQuill style={props.style} ref={ref} id={props.id} value={props.default} />
       </>
     </Label>
   );

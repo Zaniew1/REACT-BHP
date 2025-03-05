@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 export type ParagraphType = {
-  paragraphText: string;
-  paragraphClass?: string;
+  text: string;
+  class?: string;
+  style?: CSSProperties;
 };
 export const Paragraph = (props: ParagraphType): React.JSX.Element => {
-  return <p className={props.paragraphClass}>{props.paragraphText}</p>;
+  return <p style={props.style} className={props.class}>{props.text}</p>;
 };

@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useRef } from 'react';
+import { CSSProperties, forwardRef, useImperativeHandle, useRef } from 'react';
 import { Label } from '../../Label/Label';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/dark.css';
@@ -15,6 +15,7 @@ type InputDateType = {
   dateFormat?: string;
   minDate?: string | Date;
   maxDate?: string | Date;
+  style?: CSSProperties;
 };
 export const InputDate = forwardRef<HTMLInputElement, InputDateType>((props, ref) => {
   const flatpickrRef = useRef<HTMLInputElement | null>(null);
@@ -29,6 +30,7 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateType>((props, ref
       required={props.required}
     >
       <Flatpickr
+        style={props.style}
         id={props.id}
         options={{
           locale: Polish,

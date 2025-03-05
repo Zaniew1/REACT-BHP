@@ -1,7 +1,8 @@
-import { forwardRef } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
   id: string;
+  style?: CSSProperties;
   labelText?: string;
   minLength?: number;
   maxLength?: number;
@@ -9,6 +10,7 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  placeholder?:string
 };
 export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   return (
@@ -20,6 +22,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref
       labelText={props.labelText}
     >
       <input
+        style={props.style}
         ref={ref}
         id={props.id}
         type={'text'}
@@ -27,6 +30,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref
         required={props.required}
         minLength={props.minLength}
         maxLength={props.maxLength}
+        placeholder={props.placeholder}
       />
     </Label>
   );

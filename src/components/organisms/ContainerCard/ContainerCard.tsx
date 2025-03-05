@@ -1,14 +1,10 @@
-import { useRef } from 'react';
-import { MyTable } from '../Table/Table';
+import { CompanyList } from '../../../pages/CompanyList/CompanyList';
 
 export const ContainerCard: React.FC = (): JSX.Element => {
-  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <main className="container">
-      <div className="container__cont">
-        <MyTable ref={inputRef} />
-      </div>
+        <CompanyList />
     </main>
   );
 };

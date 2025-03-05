@@ -7,22 +7,22 @@ const Footer = (): React.JSX.Element => {
     <div className="foot">
       <div className="footer">
         <Paragraph
-          paragraphClass={'footer_restricted'}
-          paragraphText={'2025 © Wszelkie prawa zastrzeżone'}
+          class={'footer_restricted'}
+          text={'2025 © Wszelkie prawa zastrzeżone'}
         />
       </div>
       <div className="footer">
-        <Link linkHref={'/safety'} linkClass={'footer_link'}>
-          <Paragraph paragraphClass={'footer_paragraph'} paragraphText={'Bezpieczeństwo danych'} />
+        <Link href={'/safety'} class={'footer_link'}>
+          <Paragraph class={'footer_paragraph'} text={'Bezpieczeństwo danych'} />
         </Link>
-        <Link linkHref={'/protection'} linkClass={'footer_link'}>
-          <Paragraph paragraphClass={'footer_paragraph'} paragraphText={'Ochrona danych'} />
+        <Link href={'/protection'} class={'footer_link'}>
+          <Paragraph class={'footer_paragraph'} text={'Ochrona danych'} />
         </Link>
-        <Link linkHref={'/policy'} linkClass={'footer_link'}>
-          <Paragraph paragraphClass={'footer_paragraph'} paragraphText={'Polityka prywatności'} />
+        <Link href={'/policy'} class={'footer_link'}>
+          <Paragraph class={'footer_paragraph'} text={'Polityka prywatności'} />
         </Link>
-        <Link linkHref={'/terms'} linkClass={'footer_link'}>
-          <Paragraph paragraphClass={'footer_paragraph'} paragraphText={'Regulamin'} />
+        <Link href={'/terms'} class={'footer_link'}>
+          <Paragraph class={'footer_paragraph'} text={'Regulamin'} />
         </Link>
       </div>
     </div>

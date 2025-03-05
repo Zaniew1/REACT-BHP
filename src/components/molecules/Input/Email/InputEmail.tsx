@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { CSSProperties, forwardRef, useState } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
   id: string;
@@ -9,6 +9,7 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  style?: CSSProperties;
 };
 export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [isEmail, setIsEmail] = useState<boolean>(true);
@@ -33,6 +34,7 @@ export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, re
     >
       <>
         <input
+          style={props.style}
           onChange={handleInputChange}
           ref={ref}
           id={props.id}

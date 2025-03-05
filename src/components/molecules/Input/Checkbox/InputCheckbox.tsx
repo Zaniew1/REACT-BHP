@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputCheckboxType = {
   id: string;
@@ -8,6 +8,7 @@ type InputCheckboxType = {
   required?: boolean;
   labelClass?: string;
   wrapperClass?: string;
+  style?: CSSProperties;
 };
 export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckboxType>((props, ref) => {
   return (
@@ -20,6 +21,7 @@ export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckboxType>((pr
     >
       <div className={'checkbox__wrapper'}>
         <input
+          style={props.style}
           name={props.name}
           checked={props.default}
           type="checkbox"

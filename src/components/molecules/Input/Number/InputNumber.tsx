@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputNumberType = {
   default?: number;
@@ -11,6 +11,7 @@ type InputNumberType = {
   inputClass?: string;
   wrapperClass?: string;
   step?: number;
+  style?: CSSProperties;
 };
 export const InputNumber = forwardRef<HTMLInputElement, InputNumberType>((props, ref) => {
   return (
@@ -22,6 +23,7 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberType>((props,
       labelText={props.labelText}
     >
       <input
+        style={props.style}
         defaultValue={props.default}
         step={props.step}
         ref={ref}
