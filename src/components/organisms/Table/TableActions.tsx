@@ -3,25 +3,32 @@ import { Link } from '../../atoms/Link/Link';
 import { EllipsisVertical, Pencil, SquareMenu, Trash2 } from 'lucide-react';
 import { Button } from '../../atoms/Button/Button';
 
-export const TableActions = (): React.JSX.Element => {
+type TableActionsType = {
+  id: string;
+  oper:'firmy' | 'pracownicy' | 'szkolenia' | 'kontrole';
+  showAdditionalOptions?: boolean;
+}
+export const TableActions = (props: TableActionsType): React.JSX.Element => {
   return (
     <div className={'table__actions'}>
-      <Link linkHref="/">
-        <SquareMenu />
+      <Link style={{display: 'flex', alignItems:'center'}} target={'_self'} href={`/${props.oper}/${props.id}`}>
+        <SquareMenu size={20}/>
       </Link>
-      <Link linkHref="/">
-        <Pencil />
+      <Link style={{display: 'flex', alignItems:'center'}} href={`/${props.oper}/${props.id}/edit`}>
+        <Pencil size={20}/>
       </Link>
-      <Link linkHref="/">
-        <Trash2 />
+      <Link style={{display: 'flex', alignItems:'center'}} href={`/${props.oper}/${props.id}/delete`}>
+        <Trash2 size={20}/>
       </Link>
-      <Button
-        style={{ padding: 0, margin: 0, alignItems: 'flex-start' }}
-        type={'button'}
-        onClick={() => {}}
-      >
-        <EllipsisVertical />
-      </Button>
+      { props.showAdditionalOptions &&
+        <Button
+          style={{ padding: 0, margin: 0, alignItems: 'center' }}
+          type={'button'}
+          onClick={(e) => {e.stopPropagation(); console.log('123')}}
+        >
+          <EllipsisVertical size={20}/>
+        </Button>
+      }
     </div>
   );
 };
