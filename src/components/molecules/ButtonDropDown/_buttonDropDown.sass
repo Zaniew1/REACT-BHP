@@ -1,0 +1,34 @@
+.dropdown
+    position: relative
+    &__area
+        position: absolute
+        background-color: rgba(52, 54, 77, 1)
+        left: 50%
+        top: 110%
+        transform: translate(-50%,0)
+        border-radius: 15px
+        z-index: 9
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0.25rem 1rem
+        overflow: hidden
+        &__list
+            height: 100%
+            width: 100%
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            &__element
+                display: flex
+                align-items: center
+                padding: 0.7rem 1.2rem 0.7rem 1.2rem
+                height: 20%
+                width: 100%
+                color: $text-color
+                list-style-type: none
+                &:hover
+                    background: #788393
+                    color: #fff
+                    box-shadow: 0 0.125rem 0.25rem 0 rgba(133, 146, 163, 0.4)
+                    cursor: pointer
+                svg
+                    margin-right: 0.4rem
+                    padding-right: 0.2rem
