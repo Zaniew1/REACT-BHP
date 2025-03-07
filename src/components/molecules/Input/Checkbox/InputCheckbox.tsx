@@ -2,26 +2,30 @@ import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputCheckboxType = {
   id: string;
-  name: string;
+  name?: string;
   default?: boolean;
   labelText?: string;
   required?: boolean;
   labelClass?: string;
+  labelStyle?: CSSProperties;
   wrapperClass?: string;
-  style?: CSSProperties;
+  wrapperStyle?: CSSProperties;
+  inputStyle?: CSSProperties;
 };
 export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckboxType>((props, ref) => {
   return (
     <Label
       id={props.id}
       labelClass={props.labelClass ?? 'checkbox__label'}
+      labelStyle={props.labelStyle}
       wrapperClass={props.wrapperClass ?? 'checkbox'}
+      wrapperStyle={props.wrapperStyle}
       required={props.required}
       labelText={props.labelText}
     >
       <div className={'checkbox__wrapper'}>
         <input
-          style={props.style}
+          style={props.inputStyle}
           name={props.name}
           checked={props.default}
           type="checkbox"

@@ -1,18 +1,25 @@
-import { DataGrid, GridColDef} from '@mui/x-data-grid';
+import { DataGrid, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import Paper from '@mui/material/Paper';
 import { TableActions } from './TableActions';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Link } from '../../atoms/Link/Link';
 import { plPL } from '@mui/x-data-grid/locales';
-import {  useRef, useState } from 'react';
+import { forwardRef, MutableRefObject, RefObject, useRef, useState } from 'react';
+import { GridApiCommunity } from '@mui/x-data-grid/internals';
 const columns: GridColDef[] = [
-  { field: 'name',
+  {
+    field: 'name',
     headerName: 'Nazwa',
     disableColumnMenu: true,
     flex: 1.5,
     resizable: false,
-    renderCell: (param) => <Link class={`link linkList`} href={`/firmy/${param.id}`}>{param.value}</Link>, },
-  { field: 'adress', headerName: 'Adres',disableColumnMenu: true ,flex: 1,resizable: true, },
+    renderCell: (param) => (
+      <Link class={`link linkList`} href={`/firmy/${param.id}`}>
+        {param.value}
+      </Link>
+    ),
+  },
+  { field: 'adress', headerName: 'Adres', disableColumnMenu: true, flex: 1, resizable: true },
   {
     field: 'nip',
     headerName: 'NIP',
@@ -23,12 +30,15 @@ const columns: GridColDef[] = [
   },
   {
     field: 'Akcje',
-    description: 'Ta kolumna zawiera akcje, które można wykonać na elemencie  np: edycję, pogląd, usunięcie itp.',
+    description:
+      'Ta kolumna zawiera akcje, które można wykonać na elemencie  np: edycję, pogląd, usunięcie itp.',
     sortable: false,
     disableColumnMenu: true,
     width: 160,
     resizable: false,
-    renderCell: (param) => <TableActions id={String(param.id)} oper={'firmy'} showAdditionalOptions={true}/>,
+    renderCell: (param) => (
+      <TableActions id={String(param.id)} oper={'firmy'} showAdditionalOptions={true} />
+    ),
   },
 ];
 const darkTheme = createTheme({
@@ -74,20 +84,20 @@ const rows = [
 ];
 
 const paginationModel = { page: 0, pageSize: 5 };
-
-export  const DataTable = () => {
-  const tableRef = useRef(null);
-  const [selection, setSelection] = useState([]);
-  const handleSelectionChange = (newSelection) => {
+type DatagridType = {
+  apiRef: MutableRefObject<GridApiCommunity>;
+};
+export const DataTable = (props: DatagridType) => {
+  const [selection, setSelection] = useState<number[] | []>([]);
+  const handleSelectionChange = (newSelection: number[] | []) => {
     setSelection(newSelection);
-    console.log("Selected rows:", selection);
   };
+  console.log('Selected rows:', selection);
   return (
     <ThemeProvider theme={darkTheme}>
-
       <Paper sx={{ height: 400, width: '100%' }}>
         <DataGrid
-          ref={tableRef}
+          apiRef={props.apiRef}
           localeText={plPL.components.MuiDataGrid.defaultProps.localeText}
           rows={rows}
           columns={columns}
@@ -106,39 +116,38 @@ export  const DataTable = () => {
               backgroundColor: 'rgba(52, 54, 77, 1)',
             },
             '& .MuiDataGrid-row:nth-of-type(even)': {
-              backgroundColor: 'rgba(52, 54, 77, 0.3)', 
+              backgroundColor: 'rgba(52, 54, 77, 0.3)',
             },
             '& .MuiDataGrid-columnHeaderTitleContainer': {
               flexDirection: 'row !important',
               fontSize: '1.2rem',
               textTransform: 'uppercase',
-              color: '#babad1'
+              color: '#babad1',
             },
             '& .MuiDataGrid-cell': {
-               borderRight: '1px solid rgba(81, 81, 81, 1)',
-               borderCollapse: 'collapse'
+              borderRight: '1px solid rgba(81, 81, 81, 1)',
+              borderCollapse: 'collapse',
             },
-          
+
             '& .MuiDataGrid-scrollbar::-webkit-scrollbar': {
               height: '0.5rem',
               width: '0.5rem',
-              backgroundColor: "yellow"
+              backgroundColor: 'yellow',
             },
             '& .MuiDataGrid-scrollbar::-webkit-scrollbar-thumb': {
-              backgroundColor: "rgb(105, 108, 255)"
+              backgroundColor: 'rgb(105, 108, 255)',
             },
-        
-            '& .MuiDataGrid-scrollbar::-webkit-scrollbar-thumb:hover': {
-              backgroundColor: "rgb(91, 94, 252)",
-              cursor: 'pointer'
 
+            '& .MuiDataGrid-scrollbar::-webkit-scrollbar-thumb:hover': {
+              backgroundColor: 'rgb(91, 94, 252)',
+              cursor: 'pointer',
             },
             '& .MuiDataGrid-scrollbar::-webkit-scrollbar-track': {
-              backgroundColor: "#666"
+              backgroundColor: '#666',
             },
           }}
-          />
+        />
       </Paper>
     </ThemeProvider>
   );
-}
+};

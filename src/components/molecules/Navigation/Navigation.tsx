@@ -8,15 +8,15 @@ export const Navigation = (): React.JSX.Element => {
     <div className={'navigation'}>
       <Link href={'/companyList'} class={'navigation_link'}>
         <Building2 />
-        <Paragraph paragraphClass={'navigation_paragraph'} paragraphText={'Firmy'} />
+        <Paragraph class={'navigation_paragraph'} text={'Firmy'} />
       </Link>
       <Link href={'/'} class={'navigation_link'}>
         <UsersRound />
-        <Paragraph paragraphClass={'navigation_paragraph'} paragraphText={'Pracownicy'} />
+        <Paragraph class={'navigation_paragraph'} text={'Pracownicy'} />
       </Link>
       <Link href={'/'} class={'navigation_link'}>
         <GraduationCap />
-        <Paragraph paragraphClass={'navigation_paragraph'} paragraphText={'Szkolenia'} />
+        <Paragraph class={'navigation_paragraph'} text={'Szkolenia'} />
       </Link>
     </div>
   );
