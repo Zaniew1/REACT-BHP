@@ -151,6 +151,17 @@ body {
 .button--gray svg {
   margin: 0 0.5rem 0 0.3rem;
 }
+.button--none {
+  color: #8592a3;
+  background: transparent;
+}
+.button--none:hover {
+  color: #cbcbe2;
+}
+.button--none svg {
+  margin: 0 0.3rem 0 0.3rem;
+}
+
 .logo {
   display: flex;
   justify-content: center;

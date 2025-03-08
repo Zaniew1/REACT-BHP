@@ -9,6 +9,7 @@ type ButtonDropDownType = {
   dropDownChildren?: React.ReactNode;
   buttonStyle?: CSSProperties;
   dropDownStyle?: CSSProperties;
+  showArrow?: boolean;
 };
 
 export const ButtonDropDown = (props: ButtonDropDownType) => {
@@ -41,7 +42,7 @@ export const ButtonDropDown = (props: ButtonDropDownType) => {
         style={props.buttonStyle}
         onClick={toggleDropdown}
       >
-        {props.buttonIcon} {props.buttonText} {<ChevronDown size={18} />}
+        {props.buttonIcon} {props.buttonText} {props.showArrow ? <ChevronDown size={18} /> : ''}
       </Button>
       {showDropDown && (
         <div onClick={handleDropdownClick} style={props.dropDownStyle} className={'dropdown__area'}>

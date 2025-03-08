@@ -3,6 +3,7 @@ import { Label } from '../../Label/Label';
 type InputCheckboxType = {
   id: string;
   name?: string;
+  value?: (value: boolean) => void;
   default?: boolean;
   labelText?: string;
   required?: boolean;
@@ -33,6 +34,9 @@ export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckboxType>((pr
           id={props.id}
           className={`${'checkbox__wrapper__input'} ${props.required ? 'input_required' : ''}`}
           required={props.required}
+          onChange={(e) => {
+            props.value(e.target.checked);
+          }}
         />
         <div className={'checkbox__wrapper__switch'}>
           <div className={'checkbox__wrapper__switch__dot'}></div>

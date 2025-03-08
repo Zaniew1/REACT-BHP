@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef } from 'react';
+import { CSSProperties, forwardRef, useState } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
   id: string;
@@ -10,7 +10,8 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
-  placeholder?:string
+  placeholder?: string;
+  value?: (value: string) => void;
 };
 export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   return (
@@ -31,6 +32,7 @@ export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref
         minLength={props.minLength}
         maxLength={props.maxLength}
         placeholder={props.placeholder}
+        onChange={(input) => props.value(input.target.value)}
       />
     </Label>
   );
