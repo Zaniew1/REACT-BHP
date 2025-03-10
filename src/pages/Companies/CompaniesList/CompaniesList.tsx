@@ -1,10 +1,10 @@
-import { DataTable } from '../../components/organisms/Table/DataTable';
+import { DataTable } from '../../../components/organisms/Table/DataTable';
 import { Plus, Trash2, HardDriveDownload, HardDriveUpload, Settings } from 'lucide-react';
-import { InputText } from '../../components/molecules/Input/Text/InputText';
-import { Button } from '../../components/atoms/Button/Button';
-import { ButtonDropDown } from '../../components/molecules/ButtonDropDown/ButtonDropDown';
+import { InputText } from '../../../components/molecules/Input/Text/InputText';
+import { Button } from '../../../components/atoms/Button/Button';
+import { ButtonDropDown } from '../../../components/molecules/ButtonDropDown/ButtonDropDown';
 import { useState } from 'react';
-import { DropDownExport } from '../../components/molecules/ButtonDropDown/DropDownExport';
+import { DropDownExport } from '../../../components/molecules/ButtonDropDown/DropDownExport';
 import { CompanyColumnsType, CompanyListColumnsSwitch } from './CompanyListColumnsSwitch';
 import { columns, rows } from './CompanyListData';
 export type CompanyType = {
@@ -15,7 +15,7 @@ export type CompanyType = {
   coworkers: boolean;
 };
 
-export const CompanyList = () => {
+export const CompaniesList = () => {
   const [searchText, setSearchText] = useState<string>('');
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const [showColumns, setShowColumns] = useState<CompanyColumnsType>({

@@ -1,6 +1,6 @@
 import { GridColDef } from '@mui/x-data-grid';
-import { TableActions } from '../../components/organisms/Table/TableActions';
-import { Link } from '../../components/atoms/Link/Link';
+import { TableActions } from '../../../components/organisms/Table/TableActions';
+import { Link } from '../../../components/atoms/Link/Link';
 
 export const columns: GridColDef[] = [
   {
@@ -32,7 +32,7 @@ export const columns: GridColDef[] = [
       'Ta kolumna zawiera akcje, które można wykonać na elemencie  np: edycję, pogląd, usunięcie itp.',
     sortable: false,
     disableColumnMenu: true,
-    width: 160,
+    width: 120,
     filterable: false,
     resizable: false,
     renderCell: (param) => (

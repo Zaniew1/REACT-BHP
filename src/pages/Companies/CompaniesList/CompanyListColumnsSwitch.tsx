@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import { InputCheckbox } from '../../components/molecules/Input/Checkbox/InputCheckbox';
-type CompanyListColumnsSwitchType = {
-  setColumnsSwitch: (value: CompanyColumnsType) => void;
-};
+import { InputCheckbox } from '../../../components/molecules/Input/Checkbox/InputCheckbox';
+import { ListColumnsSwitchType } from '../../../components/organisms/Table/DataTable';
+
 export type CompanyColumnsType = {
   name: boolean;
   adress: boolean;
   nip: boolean;
 };
-export const CompanyListColumnsSwitch = ({ setColumnsSwitch }: CompanyListColumnsSwitchType) => {
+export const CompanyListColumnsSwitch = ({
+  setColumnsSwitch,
+}: ListColumnsSwitchType<CompanyColumnsType>) => {
   const [inputName, setInputName] = useState<boolean>(true);
   const [inputAdress, setInputAdress] = useState<boolean>(true);
   const [inputNip, setInputNip] = useState<boolean>(true);
