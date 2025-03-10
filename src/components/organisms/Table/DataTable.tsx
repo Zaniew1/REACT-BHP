@@ -4,19 +4,26 @@ import { ThemeProvider } from '@mui/material/styles';
 import { plPL } from '@mui/x-data-grid/locales';
 import { MutableRefObject, useEffect, useState } from 'react';
 import { GridApiCommunity } from '@mui/x-data-grid/internals';
-import { CompanyRowsType } from '../../../pages/CompanyList/CompanyListData';
 import { darkTheme, tableStyle } from './TableStyle';
+import { CompanyColumnsType } from '../../../pages/Companies/CompaniesList/CompanyListColumnsSwitch';
+import { TrainingsColumnsType } from '../../../pages/Trainings/TrainingsList/TrainingsListColumnsSwitch';
+import { CompanyRowsType } from '../../../pages/Companies/CompaniesList/CompanyListData';
+import { WorkersColumnsType } from '../../../pages/Workers/WorkersList/WorkersListColumnsSwitch';
+import { WorkersRowsType } from '../../../pages/Workers/WorkersList/WorkersListData';
+import { TrainingRowsType } from '../../../pages/Trainings/TrainingsList/TrainingsListData';
 const paginationModel = { page: 0, pageSize: 5 };
 
 type DatagridType = {
   columns: GridColDef[];
-  rows: CompanyRowsType[];
+  rows: CompanyRowsType[] | WorkersRowsType[] | TrainingRowsType[];
   apiRef?: MutableRefObject<GridApiCommunity>;
-  filterColumns?: { name: boolean; adress: boolean; nip: boolean };
+  filterColumns?: WorkersColumnsType | CompanyColumnsType | TrainingsColumnsType;
   searchText?: string;
   getSelectedRows?: (value: number[]) => void;
 };
-
+export type ListColumnsSwitchType<T> = {
+  setColumnsSwitch: (value: T) => void;
+};
 export const DataTable = ({
   columns,
   rows,
