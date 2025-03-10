@@ -1,10 +1,6 @@
-import { CompanyList } from '../../../pages/CompanyList/CompanyList';
-
-export const ContainerCard: React.FC = (): JSX.Element => {
-
-  return (
-    <main className="container">
-        <CompanyList />
-    </main>
-  );
+type ContainerCardType = {
+  children: React.ReactNode;
+};
+export const ContainerCard = (props: ContainerCardType): JSX.Element => {
+  return <main className="container">{props.children}</main>;
 };
