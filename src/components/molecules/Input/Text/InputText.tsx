@@ -1,7 +1,7 @@
-import { CSSProperties, forwardRef, useState } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
-  id: string;
+  id?: string;
   style?: CSSProperties;
   labelText?: string;
   minLength?: number;

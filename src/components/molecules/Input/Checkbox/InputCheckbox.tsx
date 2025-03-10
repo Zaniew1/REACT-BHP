@@ -1,7 +1,7 @@
 import { CSSProperties, forwardRef } from 'react';
 import { Label } from '../../Label/Label';
 type InputCheckboxType = {
-  id: string;
+  id?: string;
   name?: string;
   value?: (value: boolean) => void;
   default?: boolean;
