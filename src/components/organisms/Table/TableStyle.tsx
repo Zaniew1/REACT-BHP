@@ -30,8 +30,11 @@ export const darkTheme = createTheme({
   },
 });
 export const tableStyle = {
+  '& .MuiDataGrid-root': {
+    overflow: 'hidden',
+  },
   '& .MuiDataGrid-row': {
-    fontSize: '1.2rem !important',
+    fontSize: '1rem !important',
   },
   '& .MuiDataGrid-row:hover': {
     cursor: 'pointer',
@@ -44,7 +47,7 @@ export const tableStyle = {
   },
   '& .MuiDataGrid-columnHeaderTitleContainer': {
     flexDirection: 'row !important',
-    fontSize: '1.2rem',
+    fontSize: '0.9rem',
     textTransform: 'uppercase',
     color: '#babad1',
   },
