@@ -1,0 +1,40 @@
+.dropDocs
+    position: relative
+    width: 100%
+    @include organismContainer()
+    padding: 2rem
+    height: 500px
+    cursor: pointer
+    &__input
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        opacity: 0
+        cursor: pointer
+    &__wrapper
+        height: 100%
+        width: 100%
+        border: 2px dashed $asd
+        @include organismContainer()
+        &__header
+            color: $hover-text-color
+            font-size: 1.2rem
+            padding: 2rem 1rem
+        &__upload
+            width: 100%
+            height: 100%
+            display: flex
+            flex-direction: column
+            margin-top: 5rem
+            justify-content: flex-start
+            align-items: center
+            text-align: center
+            &__main
+                color: #566a7f
+                font-size: 3rem
+            &__info
+                padding-top: 1rem
+                font-size: 1.3rem
+                color: $text-color
