@@ -5,5 +5,9 @@ export type ParagraphType = {
   style?: CSSProperties;
 };
 export const Paragraph = (props: ParagraphType): React.JSX.Element => {
-  return <p style={props.style} className={props.class}>{props.text}</p>;
+  return (
+    <p style={props.style} className={props.class ?? 'paragraph'}>
+      {props.text}
+    </p>
+  );
 };

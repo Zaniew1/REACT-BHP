@@ -2,7 +2,7 @@ import { Button } from '../../atoms/Button/Button';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
 
 type StoreDocsType = {
-  docs: { name: string; size: string; src: string }[];
+  docs: { name: string; size: string; src: string }[] | null;
 };
 export const StoreDocs = (props: StoreDocsType) => {
   return (
@@ -16,15 +16,15 @@ export const StoreDocs = (props: StoreDocsType) => {
                 <div className={'storeDocs__wrapper__doc__img'}>
                   <img alt="Podgląd Dokumentu" src={el.src} />
                 </div>
-                <div>
+                <div className={'storeDocs__wrapper__doc__info'}>
                   <Paragraph text={el.name}></Paragraph>
                   <Paragraph text={el.size}></Paragraph>
                 </div>
-                <div>
-                  <Button onClick={() => {}}></Button>
+                <div className={'storeDocs__wrapper__doc__btn'}>
+                  <Button onClick={() => {}}>Pobierz</Button>
                 </div>
-                <div>
-                  <Button onClick={() => {}}></Button>
+                <div className={'storeDocs__wrapper__doc__btn'}>
+                  <Button onClick={() => {}}>Usuń</Button>
                 </div>
               </div>
             );

@@ -1,0 +1,61 @@
+.company__info
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding: 2rem 0 1rem 0
+    color: $asd
+    &__wrapper
+        display: flex
+        flex-direction: row
+        align-items: flex-start
+        justify-content: center
+        width: 100%
+        &__main
+            margin-right: 2rem
+            width: 100%
+            &__tiles
+                display: inline-flex
+                justify-content: space-between
+                align-items: center
+                flex-wrap: wrap
+                width: 100%
+                margin: 1rem 0
+   
+    &__buttons
+        flex: 0 0 auto
+        width: 20%
+        margin-right: 1rem
+        &__wrapper
+            @include flexCenter(column)
+            @include organismContainer()
+            padding: 4rem 0
+            width: 100%
+        &__wrapper2
+            @include flex(center, flex-start , column)
+            @include organismContainer()
+            padding: 2rem 0
+            width: 100%
+            padding-left: 1rem
+            &__link
+                @include flexCenter(row)
+                border-radius: 0.375rem
+                padding: 0.4375rem 1.2rem
+                transition: 0.2s ease-in-out
+                cursor: pointer
+                margin: 0 0.4rem
+                height: 3rem
+                font-size: 1rem
+                color: #8592a3
+                background: transparent    
+                text-decoration: none
+                &:hover
+                    color: $hover-text-color
+                & svg 
+                    margin: 0 0.3rem 0 0.3rem
+            &__btn
+                width: 100%
+                @include flex(center, flex-start , column)
+                border-top: 1px solid $asd
+                margin-top: 1rem

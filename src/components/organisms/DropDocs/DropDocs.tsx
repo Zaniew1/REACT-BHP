@@ -12,7 +12,7 @@ export const DropDocs = forwardRef<HTMLInputElement, DropDocsType>((props, ref) 
         <div className="dropDocs__wrapper__upload">
           <Paragraph
             class={'dropDocs__wrapper__upload__main'}
-            text={'Upuść pliki tutaj lub kliknij aby przesłać'}
+            text={'Kliknij aby przesłać'}
           ></Paragraph>
           <Paragraph
             class={'dropDocs__wrapper__upload__info'}

@@ -14,7 +14,10 @@ type TileType = {
 export const Tile = (props: TileType) => {
   return (
     <div style={props.style} className="tile">
-      <Icon style={{ marginBottom: '1rem' }} class={`icon--${props.iconColor}`}>
+      <Icon
+        style={{ width: '3.5rem', height: '3.5rem', marginBottom: '1rem' }}
+        class={`icon--${props.iconColor}`}
+      >
         {props.icon}
       </Icon>
       {props.link && (

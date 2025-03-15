@@ -1,0 +1,44 @@
+.elementsInformation
+    width: 100%
+    @include organismContainer()
+    padding: 2rem 0
+    margin-right: 1rem
+    &__header
+        font-size: 2.2rem
+        color: $text-whiter-color
+        font-weight: 400
+        padding: 2rem 0 0 3rem
+    &__subheader
+        font-size: 1.5rem
+        color: $text-color
+        padding: 1rem 0 3rem 3rem
+    &__row
+        display: flex
+        width: 100%
+        border-top: 1px solid $asd
+        padding: 3rem 0 3rem 3rem
+        &__column
+            width: 100%
+            &__header
+                font-size: 1.2rem
+                font-weight: 500
+                color: $text-whiter-color
+            &__data
+                display: flex
+                flex-direction: column
+                padding-top: 1rem
+                &__rows
+                    display: flex
+                    padding: 0.2rem 0.5rem
+                    &__label
+                        padding-right: 1rem
+                        font-size: 1.3rem
+                        color: $text-darker-color
+                    &__value
+                        font-size: 1.3rem
+                        color: $text-whiter-color
+    &__moddate
+        border-top: 1px solid $asd
+        font-size: 1rem
+        color: $text-darker-color
+        padding: 2rem 0 0 3rem

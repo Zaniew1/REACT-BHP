@@ -18,6 +18,9 @@
     justify-content: space-around
     align-items: center
     flex-direction: $direction
+@mixin organismContainer()
+    border-radius: 15px
+    background-color: $organisms-background
 
 @mixin link-primal()
     @include flexCenter(row)
@@ -41,7 +44,9 @@
 @mixin success()
     background-color: $success-bgc
     color: $success-color
-    
+@mixin blue()
+    background-color: $blue-bgc
+    color: $blue-color
 @mixin info()
     background-color: $info-bgc
     color: $info-color

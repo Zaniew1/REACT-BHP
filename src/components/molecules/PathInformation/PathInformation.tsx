@@ -6,10 +6,11 @@ type PathInformationType = {
   linkHref?: string;
   linkText?: string;
   paragraphText?: string;
+  style: React.CSSProperties;
 };
 export const PathInformation = (props: PathInformationType) => {
   return (
-    <div className="path">
+    <div style={props.style} className="path">
       {props.linkText && (
         <Link class={'path__link'} href={props.linkHref}>
           {props.linkText}
