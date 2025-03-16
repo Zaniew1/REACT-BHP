@@ -10,7 +10,7 @@ export const InfoBar = (): React.JSX.Element => {
   return (
     <div className={'infoBar'}>
       <div className="infoBar_wrapper">
-        <Icon class="icon--yellow">
+        <Icon style={{ marginRight: '2rem' }} class="icon--green">
           <GraduationCap />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
@@ -20,7 +20,7 @@ export const InfoBar = (): React.JSX.Element => {
         </div>
       </div>
       <div className="infoBar_wrapper">
-        <Icon class="icon--gray">
+        <Icon style={{ marginRight: '2rem' }} class="icon--gray">
           <ListTodo />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
@@ -30,7 +30,7 @@ export const InfoBar = (): React.JSX.Element => {
         </div>
       </div>
       <div className="infoBar_wrapper">
-        <Icon class="icon--red">
+        <Icon style={{ marginRight: '2rem' }} class="icon--red">
           <TriangleAlert />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
@@ -40,7 +40,7 @@ export const InfoBar = (): React.JSX.Element => {
         </div>
       </div>
       <div className="infoBar_wrapper">
-        <Icon class="icon--green">
+        <Icon style={{ marginRight: '2rem' }} class="icon--yellow">
           <ClipboardCheck />
         </Icon>
         <div className={'infoBar_wrapper_text'}>
