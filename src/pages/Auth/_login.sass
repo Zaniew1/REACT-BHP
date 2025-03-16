@@ -1,20 +1,104 @@
 .auth
     display: flex
-    flex-direction: column
-    background-color: $organisms-background
-    width: 30%
-    margin: 2em auto
-    height: 90%
-    padding: 1em 2em
-    border-radius: $border-radius
-    &__logo
-        margin: 2em auto
-        scale: 1.4
-    &__header
-        @include paragraph-primal()
-        font-size: 1.4vw
-        color: $text-whiter-color
-    &__header__secondary
-        @include paragraph-primal()
-        padding: 0.5em 0
-   
+    justify-content: center
+    align-items: center
+    &__wrapper
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        @include organismContainer()
+        min-width: 300px
+        width: 100% 
+        max-width: 600px
+        margin: 3rem 0
+        padding: 1em 2em
+        &__logo
+            display: flex
+            justify-content: center
+            align-items: center
+            width: 100%
+            padding: 2.5rem 0
+            transform: scale(2)
+            & a
+                pointer-events: none
+        &__texts
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: flex-start
+            padding-top: 2rem
+            width: 100%
+            &__header
+                font-size: 2rem
+                color: $hover-text-color
+                font-weight: 500
+                padding-bottom: 0.5rem
+            &__subheader
+                font-size: 1rem
+                color: $text-color
+        &__form
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: flex-start
+            margin: 2.5rem 0 1.5rem 0
+            width: 100%
+        &__or
+            display: flex
+            justify-content: center
+            width: 100%
+            font-size: 1rem
+            color: $text-color
+            margin: 2rem auto 1rem auto
+            position: relative
+            &::after
+                content: ''
+                display: block
+                position: absolute
+                top: 50%
+                left: 0
+                width: 45%
+                height: 1px
+                background-color: $text-darker-color
+            &::before
+                content: ''
+                display: block
+                position: absolute
+                top: 50%
+                right: 0
+                width: 45%
+                height: 1px
+                background-color: $text-darker-color
+        &__register
+            display: flex
+            justify-content: center
+            align-items: center
+            list-style-type: none
+            text-decoration: none
+            cursor: pointer
+            color: $extraColor
+            border: 1px solid $extraColor
+            border-radius: 5px
+            padding: 0.8rem 3rem
+            transition: .3s ease-in-out 
+            & svg
+                padding-right: 0.3rem
+            &:hover
+                background-color: $extraColor
+                color: #fff
+                & svg
+        &__acceptance
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            align-items: flex-start
+            width: 100%
+            padding: 1rem 0
+            & .checkbox
+                justify-content: flex-start
+                width: 100%
+                transform: scale(0.7)
+                transform-origin: left 
+                margin: 0.4rem 0 
+                &__label
+                    font-size: 0.7rem
