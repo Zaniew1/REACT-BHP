@@ -2,8 +2,8 @@ import { CSSProperties, forwardRef, useState } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
   id: string;
+  minLength: number;
   labelText?: string;
-  minLength?: number;
   maxLength?: number;
   required?: boolean;
   labelClass?: string;
@@ -23,7 +23,7 @@ export const InputPassword = forwardRef<HTMLInputElement, InputTextType>((props,
     } else {
       setHasNumbers(false);
     }
-    if (event.target.value.length >= 8) {
+    if (event.target.value.length >= props.minLength) {
       setHasLength(true);
     } else {
       setHasLength(false);
@@ -56,7 +56,11 @@ export const InputPassword = forwardRef<HTMLInputElement, InputTextType>((props,
           minLength={props.minLength}
           maxLength={props.maxLength}
         />
-        {!hasLength && <span className={'input_warning'}>Hasło musi zawierać min 8 znaków</span>}
+        {!hasLength && (
+          <span
+            className={'input_warning'}
+          >{`Hasło musi zawierać min ${props.minLength} znaków`}</span>
+        )}
         {!hasNumbers && <span className={'input_warning'}>Hasło musi zawierać liczbę</span>}
         {!hasSpecialChar && (
           <span className={'input_warning'}>Hasło musi zawierać znak specjalny</span>

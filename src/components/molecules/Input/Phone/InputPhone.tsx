@@ -9,14 +9,15 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  wrapperStyle?: CSSProperties;
   style?: CSSProperties;
 };
 export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [inputValue, setInputValue] = useState<string>('');
-  const handleInput = () => {
-    const inputElement = ref as React.RefObject<HTMLInputElement>;
-    if (inputElement.current?.value.length > 11) return;
-    const onlyNums = inputElement.current?.value.replace(/\D/g, '');
+  const handleInput = (e: React.SyntheticEvent) => {
+    const inputVal = (e.target as HTMLInputElement).value;
+    if (inputVal.length > 11) return;
+    const onlyNums = inputVal.replace(/\D/g, '');
     let formatted = '';
     for (let i = 0; i < onlyNums.length; i++) {
       if (i > 0 && i % 3 === 0) {
@@ -33,6 +34,7 @@ export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, re
       wrapperClass={props.wrapperClass}
       required={props.required}
       labelText={props.labelText}
+      wrapperStyle={props.wrapperStyle}
     >
       <>
         <div className={'phone_wrapper'}>
@@ -49,7 +51,7 @@ export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, re
             required={props.required}
             minLength={props.minLength}
             maxLength={props.maxLength}
-            onChange={handleInput}
+            onChange={(e: React.SyntheticEvent) => handleInput(e)}
           />
         </div>
       </>

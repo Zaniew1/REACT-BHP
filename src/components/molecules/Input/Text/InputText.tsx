@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef } from 'react';
+import { CSSProperties, forwardRef, useState } from 'react';
 import { Label } from '../../Label/Label';
 type InputTextType = {
   id?: string;
@@ -10,10 +10,12 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  wrapperStyle?: CSSProperties;
   placeholder?: string;
   value?: (value: string) => void;
 };
 export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
   return (
     <Label
       id={props.id}
@@ -21,18 +23,24 @@ export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref
       wrapperClass={props.wrapperClass}
       required={props.required}
       labelText={props.labelText}
+      wrapperStyle={props.wrapperStyle}
     >
       <input
         style={props.style}
         ref={ref}
         id={props.id}
         type={'text'}
-        className={`${props.inputClass ?? 'input'} ${props.required ? 'input_required' : ''}`}
+        className={`${props.inputClass ?? 'input'} ${
+          props.required && isEmpty ? 'input_required' : ''
+        }`}
         required={props.required}
         minLength={props.minLength}
         maxLength={props.maxLength}
         placeholder={props.placeholder}
-        onChange={(input) => props.value(input.target.value)}
+        onChange={(input) => {
+          setIsEmpty(input.target.value.trim() == '');
+          if (props.value) props.value(input.target.value);
+        }}
       />
     </Label>
   );

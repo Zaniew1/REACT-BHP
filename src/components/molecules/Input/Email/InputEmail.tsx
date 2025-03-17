@@ -9,11 +9,19 @@ type InputTextType = {
   labelClass?: string;
   inputClass?: string;
   wrapperClass?: string;
+  wrapperStyle?: CSSProperties;
   style?: CSSProperties;
 };
 export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [isEmail, setIsEmail] = useState<boolean>(true);
+  const [emailLength, setEmailLength] = useState<boolean>(true);
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (
+      (props.minLength && event.target.value.length < props.minLength) ||
+      (props.maxLength && event.target.value.length > props.maxLength)
+    ) {
+      setEmailLength(true);
+    }
     if (
       event.target.value.match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
@@ -31,6 +39,7 @@ export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, re
       wrapperClass={props.wrapperClass}
       required={props.required}
       labelText={props.labelText}
+      wrapperStyle={props.wrapperStyle}
     >
       <>
         <input
