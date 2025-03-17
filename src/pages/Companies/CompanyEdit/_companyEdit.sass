@@ -1,0 +1,40 @@
+.company__edit
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding: 2rem 0 1rem 0
+    color: $asd
+    &__wrapper
+        display: flex
+        flex-direction: row
+        align-items: flex-start
+        justify-content: center
+        @include organismContainer()
+        width: 100%
+        &__main
+            margin: 2rem
+            width: 100%
+            &__header
+                font-size: 2rem
+                margin: 0 0 1rem 0
+                color: $text-whiter-color
+                font-weight: 400
+            &__info
+                display: flex
+                flex-grow: 1
+            &__rest
+                display: flex
+                flex-direction: column
+                &__buttons
+                    display: flex
+                &__data
+                    margin: 1rem 0
+                    &__contact
+                        display: flex
+                        flex-wrap: wrap
+                        width: 100%
+                &__save
+                    display: flex
+                    justify-content: flex-end
