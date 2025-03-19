@@ -8,6 +8,7 @@ import { DropDownExport } from '../../../components/molecules/ButtonDropDown/Dro
 import { WorkersColumnsType, WorkersListColumnsSwitch } from './WorkersListColumnsSwitch';
 
 import { columns, rows } from './WorkersListData';
+import { Link } from '../../../components/atoms/Link/Link';
 
 export const WorkersList = () => {
   const [searchText, setSearchText] = useState<string>('');
@@ -72,10 +73,14 @@ export const WorkersList = () => {
             <HardDriveDownload />
             Import
           </Button>
-          <Button onClick={() => {}} class="button--blue">
+          <Link
+            style={{ width: '300px', padding: '0' }}
+            href={'/pracownicy/dodanie'}
+            class="button--blue"
+          >
             <Plus />
             Nowy pracownik
-          </Button>
+          </Link>
         </div>
         <DataTable
           columns={columns}
