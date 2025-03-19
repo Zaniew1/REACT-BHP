@@ -7,8 +7,9 @@ import { useState } from 'react';
 import { DropDownExport } from '../../../components/molecules/ButtonDropDown/DropDownExport';
 import { CompanyColumnsType, CompanyListColumnsSwitch } from './CompanyListColumnsSwitch';
 import { columns, rows } from './CompanyListData';
+import { Link } from '../../../components/atoms/Link/Link';
 export type CompanyType = {
-  id: number;
+  id: string;
   name: string;
   adress: string;
   nip: number;
@@ -74,10 +75,10 @@ export const CompaniesList = () => {
             <HardDriveDownload />
             Import
           </Button>
-          <Button onClick={() => {}} class="button--blue">
+          <Link href="/firmy/dodanie" style={{ width: '250px' }} class="button--blue">
             <Plus />
             Nowa Firma
-          </Button>
+          </Link>
         </div>
         <DataTable
           columns={columns}

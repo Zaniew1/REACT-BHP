@@ -1,5 +1,4 @@
 import React from 'react';
-// import { CompanyType } from '../CompaniesList/CompaniesList';
 import { Button } from '../../../components/atoms/Button/Button';
 import { useParams } from 'react-router-dom';
 import {
@@ -26,6 +25,8 @@ import { Link } from '../../../components/atoms/Link/Link';
 
 export const Company = (): React.JSX.Element => {
   const { id } = useParams();
+  //   const companyData = useGetCompanyData(id);
+
   const data = [
     [
       [
