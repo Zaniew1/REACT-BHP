@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { DropDownExport } from '../../../components/molecules/ButtonDropDown/DropDownExport';
 import { TrainingsColumnsType, TrainingsListColumnsSwitch } from './TrainingsListColumnsSwitch';
 import { columns, rows } from './TrainingsListData';
+import { Link } from '../../../components/atoms/Link/Link';
 
 export const TrainingsList = () => {
   const [searchText, setSearchText] = useState<string>('');
@@ -66,10 +67,10 @@ export const TrainingsList = () => {
             <HardDriveDownload />
             Import
           </Button>
-          <Button onClick={() => {}} class="button--blue">
+          <Link style={{ width: '300px' }} href="/pracownicy/dodanie" class="button--blue">
             <Plus />
             Nowe szkolenie
-          </Button>
+          </Link>
         </div>
         <DataTable
           columns={columns}
