@@ -12,6 +12,7 @@ type InputTextareaType = {
   maxLength?: number;
   style?: CSSProperties;
   wrapperStyle?: CSSProperties;
+  testData?: string;
 };
 
 export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, ref) => {
@@ -24,7 +25,13 @@ export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, r
       id={props.id}
     >
       <>
-        <ReactQuill style={props.style} ref={ref} id={props.id} value={props.default} />
+        <ReactQuill
+          data-cy={props.testData}
+          style={props.style}
+          ref={ref}
+          id={props.id}
+          value={props.default}
+        />
       </>
     </Label>
   );

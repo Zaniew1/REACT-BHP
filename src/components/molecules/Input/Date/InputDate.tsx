@@ -7,7 +7,7 @@ import { Polish } from 'flatpickr/dist/l10n/pl.js';
 type InputDateType = {
   id: string;
   mode?: 'single' | 'multiple' | 'range';
-  default?: number[];
+  default?: Date[];
   labelText?: string;
   required?: boolean;
   labelClass?: string;
@@ -16,6 +16,7 @@ type InputDateType = {
   minDate?: string | Date;
   maxDate?: string | Date;
   style?: CSSProperties;
+  testData?: string;
 };
 export const InputDate = forwardRef<HTMLInputElement, InputDateType>((props, ref) => {
   const flatpickrRef = useRef<HTMLInputElement | null>(null);
@@ -32,9 +33,10 @@ export const InputDate = forwardRef<HTMLInputElement, InputDateType>((props, ref
       <Flatpickr
         style={props.style}
         id={props.id}
+        data-cy={props.testData}
         options={{
           locale: Polish,
-          mode: props.mode ?? 'single',
+          mode: props.mode,
           defaultDate: props.default ?? [new Date()],
           altInput: true,
           altFormat: 'F j, Y',

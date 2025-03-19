@@ -11,6 +11,8 @@ type InputTextType = {
   wrapperClass?: string;
   wrapperStyle?: CSSProperties;
   style?: CSSProperties;
+  testData?: string;
+  default?: string;
 };
 export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [isEmail, setIsEmail] = useState<boolean>(true);
@@ -43,6 +45,7 @@ export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, re
     >
       <>
         <input
+          data-cy={props.testData}
           style={props.style}
           onChange={handleInputChange}
           ref={ref}
@@ -52,6 +55,7 @@ export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, re
           required={props.required}
           minLength={props.minLength}
           maxLength={props.maxLength}
+          value={props.default}
         />
         {!isEmail && <span className={'input_warning'}>Nieprawidłowy email</span>}
       </>

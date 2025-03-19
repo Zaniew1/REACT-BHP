@@ -1,27 +1,48 @@
-import { forwardRef } from 'react';
+import { CSSProperties, forwardRef } from 'react';
 import Select, { SelectInstance } from 'react-select';
 import makeAnimated from 'react-select/animated';
 import { customStyles } from './SelectStyles';
-import { OptionType, SelectType } from './SelectTypes';
+// import { SelectType } from './SelectTypes';
 import { Label } from '../Label/Label';
 
 const animatedComponents = makeAnimated();
+export type SelectType = {
+  defaultValue?: string;
+  id?: string;
+  options: { value: string; label: string }[];
+  labelText?: string;
+  labelClass?: string;
+  selectClass?: string;
+  wrapperClass?: string;
+  wrapperStyle?: CSSProperties;
+  isMulti?: boolean;
+  isClearable?: boolean;
+  isSearchable?: boolean;
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  isRequired?: boolean;
+  testData?: string;
+};
 
-export const Selectr = forwardRef<SelectInstance<OptionType, false>, SelectType>((props, ref) => {
+export const Selectr = forwardRef<SelectInstance<SelectType, false>, SelectType>((props, ref) => {
+  const defaultValueSelect = props.options.filter((el) => el.value === props.defaultValue);
   return (
     <Label
       id={props.id}
       labelClass={props.labelClass}
       wrapperClass={props.wrapperClass}
+      wrapperStyle={props.wrapperStyle}
       required={props.isRequired}
       labelText={props.labelText}
     >
       <Select
         ref={ref}
         id={props.id}
+        placeholder={'Wybierz..'}
         closeMenuOnSelect={false}
+        data-cy={props.testData}
         components={animatedComponents}
-        defaultValue={props.defaultValue}
+        defaultValue={defaultValueSelect[0]}
         options={props.options}
         styles={customStyles}
         isMulti={props.isMulti ?? false}

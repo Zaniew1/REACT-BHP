@@ -13,9 +13,12 @@ type InputTextType = {
   wrapperStyle?: CSSProperties;
   placeholder?: string;
   value?: (value: string) => void;
+  default?: string;
+  testData?: string;
 };
 export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [isEmpty, setIsEmpty] = useState<boolean>(false);
+
   return (
     <Label
       id={props.id}
@@ -33,11 +36,14 @@ export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref
         className={`${props.inputClass ?? 'input'} ${
           props.required && isEmpty ? 'input_required' : ''
         }`}
+        data-cy={props.testData}
         required={props.required}
         minLength={props.minLength}
         maxLength={props.maxLength}
         placeholder={props.placeholder}
+        defaultValue={props.default}
         onChange={(input) => {
+          console.log(input.target.value);
           setIsEmpty(input.target.value.trim() == '');
           if (props.value) props.value(input.target.value);
         }}

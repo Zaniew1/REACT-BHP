@@ -11,9 +11,11 @@ type InputTextType = {
   wrapperClass?: string;
   wrapperStyle?: CSSProperties;
   style?: CSSProperties;
+  testData?: string;
+  default?: string;
 };
 export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState<string>(props.default);
   const handleInput = (e: React.SyntheticEvent) => {
     const inputVal = (e.target as HTMLInputElement).value;
     if (inputVal.length > 11) return;
@@ -40,6 +42,7 @@ export const InputPhone = forwardRef<HTMLInputElement, InputTextType>((props, re
         <div className={'phone_wrapper'}>
           <span className={'phone_area'}>+48</span>
           <input
+            data-cy={props.testData}
             style={props.style}
             ref={ref}
             value={inputValue}

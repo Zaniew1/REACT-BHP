@@ -12,6 +12,7 @@ type InputNumberType = {
   wrapperClass?: string;
   step?: number;
   style?: CSSProperties;
+  testData?: string;
 };
 export const InputNumber = forwardRef<HTMLInputElement, InputNumberType>((props, ref) => {
   return (
@@ -28,6 +29,7 @@ export const InputNumber = forwardRef<HTMLInputElement, InputNumberType>((props,
         step={props.step}
         ref={ref}
         id={props.id}
+        data-cy={props.testData}
         type={'number'}
         className={`${props.inputClass ?? 'input'} ${props.required ? 'input_required' : ''}`}
         required={props.required}
