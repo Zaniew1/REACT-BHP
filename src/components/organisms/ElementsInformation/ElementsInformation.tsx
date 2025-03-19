@@ -1,13 +1,15 @@
+import { Icon } from '../../atoms/Icon/Icon';
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';
-
 type ElementsInformationType = {
   header?: string;
   subheader?: string;
+  additionalInfoHeader?: string;
+  additionalInfoColor?: 'red' | 'green' | 'yellow' | 'gray';
   data?: {
     header: string;
     info: {
       label: string;
-      value: string;
+      value: string | number | React.ReactNode | null;
       sensitive?: boolean;
     }[];
   }[][][];
@@ -17,7 +19,17 @@ type ElementsInformationType = {
 export const ElementsInformation = (props: ElementsInformationType) => {
   return (
     <div className="elementsInformation">
-      <div className={'elementsInformation__header'}>{props.header}</div>
+      <div className={'elementsInformation__header'}>
+        <div className={'elementsInformation__header__main'}>{props.header}</div>
+        {props.additionalInfoHeader && (
+          <Icon
+            style={{ width: '10%', marginRight: '2rem' }}
+            class={`icon--${props.additionalInfoColor}`}
+          >
+            {props.additionalInfoHeader}
+          </Icon>
+        )}
+      </div>
       <div className={'elementsInformation__subheader'}>{props.subheader}</div>
       {props.data &&
         props.data.map((row) => {
@@ -59,7 +71,7 @@ export const ElementsInformation = (props: ElementsInformationType) => {
                                         'elementsInformation__row__column__data__rows__value'
                                       }
                                     >
-                                      {informations.value ? informations.value : '-'}
+                                      {informations.value != null ? informations.value : '-'}
                                     </div>
                                   </div>
                                 );
