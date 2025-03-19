@@ -31,7 +31,6 @@ const Register = (): React.JSX.Element => {
             required={true}
             id={'auth__login__form__email'}
           />
-
           <InputPassword
             minLength={8}
             maxLength={20}
@@ -54,14 +53,16 @@ const Register = (): React.JSX.Element => {
           type={'submit'}
           onClick={registerUser}
         >
-          Zaloguj
+          Zarejestruj
         </Button>
-        {/* <Link style={{ marginTop: '1rem' }} href="/remindPassword">
-          Zapomniałeś hasła?
-        </Link> */}
         <div className={'auth__wrapper__acceptance'}>
-          <InputCheckbox required={true} labelText={'Akceptuję politykę prywatności. '} />
           <InputCheckbox
+            labelStyle={{ fontSize: '0.8rem' }}
+            required={true}
+            labelText={'Akceptuję politykę prywatności. '}
+          />
+          <InputCheckbox
+            labelStyle={{ fontSize: '0.8rem' }}
             required={true}
             labelText={'Akceptuję otrzymywanie wiadomości e-mail dotyczących mojej subskrypcji. '}
           />
