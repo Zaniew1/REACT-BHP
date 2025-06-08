@@ -1,4 +1,4 @@
-import { CSSProperties, forwardRef } from 'react';
+import { CSSProperties, forwardRef, useState } from 'react';
 import ReactQuill from 'react-quill-new';
 import 'react-quill/dist/quill.snow.css';
 import { Label } from '../../Label/Label';
@@ -16,6 +16,7 @@ type InputTextareaType = {
 };
 
 export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, ref) => {
+  const [value, setValue] = useState<string>(props.default || "")
   return (
     <Label
       labelText={props.labelText}
@@ -26,11 +27,12 @@ export const InputTextarea = forwardRef<ReactQuill, InputTextareaType>((props, r
     >
       <>
         <ReactQuill
+          onChange={(content: string) => setValue(content)}
           data-cy={props.testData}
           style={props.style}
           ref={ref}
           id={props.id}
-          value={props.default}
+          value={value}
         />
       </>
     </Label>

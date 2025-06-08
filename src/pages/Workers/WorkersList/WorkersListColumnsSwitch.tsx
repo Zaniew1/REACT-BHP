@@ -9,7 +9,6 @@ export type WorkersColumnsType = {
   validityTrainingPeriodical: boolean;
   validityTrainingEntry: boolean;
   validityMedicalExamination: boolean;
-  status: boolean;
 };
 export const WorkersListColumnsSwitch = ({
   setColumnsSwitch,
@@ -20,7 +19,6 @@ export const WorkersListColumnsSwitch = ({
   const [inputPeriodical, setInputPeriodical] = useState<boolean>(true);
   const [inputEntry, setInputEntry] = useState<boolean>(true);
   const [inputMedicalExamintaion, setInputMedicalExamintaion] = useState<boolean>(true);
-  const [inputStatus, setInputStatus] = useState<boolean>(true);
   useEffect(() => {
     setColumnsSwitch({
       adress: inputAdress,
@@ -28,8 +26,7 @@ export const WorkersListColumnsSwitch = ({
       position: inputPosition,
       validityTrainingPeriodical: inputPeriodical,
       validityTrainingEntry: inputEntry,
-      validityMedicalExamination: inputMedicalExamintaion,
-      status: inputStatus,
+      validityMedicalExamination: inputMedicalExamintaion
     });
   }, [
     inputAdress,
@@ -38,7 +35,6 @@ export const WorkersListColumnsSwitch = ({
     inputEntry,
     inputPeriodical,
     inputMedicalExamintaion,
-    inputStatus,
     setColumnsSwitch,
   ]);
   return (
@@ -110,17 +106,7 @@ export const WorkersListColumnsSwitch = ({
         value={setInputMedicalExamintaion}
         labelText={'Badania lekarskie'}
       />
-      <InputCheckbox
-        wrapperStyle={{
-          transform: 'scale(0.6)',
-          marginBottom: '0',
-          width: '100%',
-          justifyContent: 'flex-start',
-        }}
-        default={inputStatus}
-        value={setInputStatus}
-        labelText={'Status'}
-      />
+     
     </div>
   );
 };

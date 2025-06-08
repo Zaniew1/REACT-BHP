@@ -3,16 +3,19 @@ import { Plus, Trash2, HardDriveDownload, HardDriveUpload, Settings } from 'luci
 import { InputText } from '../../../components/molecules/Input/Text/InputText';
 import { Button } from '../../../components/atoms/Button/Button';
 import { ButtonDropDown } from '../../../components/molecules/ButtonDropDown/ButtonDropDown';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DropDownExport } from '../../../components/molecules/ButtonDropDown/DropDownExport';
 import { WorkersColumnsType, WorkersListColumnsSwitch } from './WorkersListColumnsSwitch';
 
-import { columns, rows } from './WorkersListData';
+import { columns } from './WorkersListData';
 import { Link } from '../../../components/atoms/Link/Link';
+import useAxios from '../../../hooks/useAxios';
 
 export const WorkersList = () => {
   const [searchText, setSearchText] = useState<string>('');
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
+  const {response, error, loading, fetchData} =  useAxios();
+
   const [showColumns, setShowColumns] = useState<WorkersColumnsType>({
     adress: true,
     company: false,
@@ -22,7 +25,15 @@ export const WorkersList = () => {
     validityMedicalExamination: true,
     status: true,
   });
-
+  const getWorkers = async () =>{
+   return await fetchData({
+        url: '/worker',
+        method: "GET",
+      })
+    }
+    useEffect(()=>{
+      getWorkers()
+    },[])
   return (
     <div className="list__company__container">
       <h2 className="Header__2">Pracownicy</h2>
@@ -84,7 +95,8 @@ export const WorkersList = () => {
         </div>
         <DataTable
           columns={columns}
-          rows={rows}
+          rows={response?.workers}
+          loading={loading}
           filterColumns={showColumns}
           searchText={searchText}
           getSelectedRows={setSelectedRows}

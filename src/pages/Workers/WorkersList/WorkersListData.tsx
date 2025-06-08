@@ -8,22 +8,23 @@ export const columns: GridColDef[] = [
     headerName: 'Nazwisko i Imię',
     disableColumnMenu: true,
     type: 'string',
-    flex: 0.5,
+    flex: 0.3,
     resizable: true,
     filterable: false,
     renderCell: (param) => (
       <Link class={`link linkList`} href={`/pracownicy/${param.id}`}>
-        {param.value}
+        {`${param?.row?.name} ${param?.row?.surname}`}
       </Link>
     ),
   },
   {
-    field: 'adress',
-    headerName: 'Adres',
+    field: 'city',
+    headerName: 'Adress',
     type: 'string',
     disableColumnMenu: true,
-    flex: 0.4,
+    flex: 0.3,
     resizable: true,
+     renderCell: (params) =>  {console.log(params); return params?.row?.city && params?.row?.street ? `${params?.row?.city}, ${params?.row?.street}`: ""}
   },
   {
     field: 'company',
@@ -44,35 +45,38 @@ export const columns: GridColDef[] = [
     filterable: false,
   },
   {
-    field: 'validityTrainingPeriodical',
+    field: 'trainingEntry',
     headerName: 'Szkolenia wstępne',
     disableColumnMenu: true,
     type: 'date',
-    flex: 0.3,
+    flex: 0.5,
     resizable: true,
     filterable: false,
+    valueGetter: (param) =>param ? new Date(param) : null,
   },
   {
-    field: 'validityTrainingEntry',
+    field: 'trainingPeriodic',
     headerName: 'Szkolenia okresowe',
     disableColumnMenu: true,
     type: 'date',
     flex: 0.3,
     resizable: true,
     filterable: false,
+    valueGetter: (param) =>param ? new Date(param) : null,
   },
   {
-    field: 'validityMedicalExamination',
+    field: 'medicalExamination',
     headerName: 'Ważność badań lekarskich',
     disableColumnMenu: true,
     type: 'date',
     flex: 0.3,
     resizable: true,
     filterable: false,
+    valueGetter: (param) =>param ? new Date(param) : null,
   },
   {
-    field: 'status',
-    headerName: 'Status',
+    field: 'absence',
+    headerName: 'Nieobecność',
     disableColumnMenu: true,
     type: 'string',
     flex: 0.3,

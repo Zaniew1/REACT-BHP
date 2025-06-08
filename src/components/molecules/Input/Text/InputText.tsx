@@ -43,7 +43,6 @@ export const InputText = forwardRef<HTMLInputElement, InputTextType>((props, ref
         placeholder={props.placeholder}
         defaultValue={props.default}
         onChange={(input) => {
-          console.log(input.target.value);
           setIsEmpty(input.target.value.trim() == '');
           if (props.value) props.value(input.target.value);
         }}

@@ -19,6 +19,7 @@ type DatagridType = {
   apiRef?: MutableRefObject<GridApiCommunity>;
   filterColumns?: WorkersColumnsType | CompanyColumnsType | TrainingsColumnsType;
   searchText?: string;
+  loading: boolean;
   getSelectedRows?: (value: number[]) => void;
 };
 export type ListColumnsSwitchType<T> = {
@@ -30,6 +31,7 @@ export const DataTable = ({
   apiRef,
   filterColumns,
   getSelectedRows,
+  loading,
   searchText,
 }: DatagridType) => {
   const handleSelectionChange = (newSelection: number[] | []) => {
@@ -59,6 +61,7 @@ export const DataTable = ({
           localeText={plPL.components.MuiDataGrid.defaultProps.localeText}
           columns={columns}
           rows={rows}
+          loading={loading}
           initialState={{ pagination: { paginationModel } }}
           pageSizeOptions={[5, 10, 20, 50, 100]}
           checkboxSelection

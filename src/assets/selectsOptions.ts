@@ -22,7 +22,7 @@ export const formsOfEmployment: OptionType[] = [
 ];
 export const sexes: OptionType[] = [
   { value: 'men', label: 'Mężczyzna' },
-  { value: 'women', label: 'Kobieta' },
+  { value: 'woman', label: 'Kobieta' },
 ];
 
 export const absenceTypes: OptionType[] = [

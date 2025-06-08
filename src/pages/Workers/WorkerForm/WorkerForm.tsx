@@ -48,11 +48,9 @@ type WorkerType = {
   nightShift?: boolean;
   notes: string;
 };
-type WorkerFormType = {
-  data?: WorkerType;
-};
 
-export const WorkerForm = (props: WorkerFormType) => {
+
+export const WorkerForm = (props: {data?: WorkerType}) => {
   const [toggleData, setToggleData] = useState<1 | 2 | 3 | 4 | 5>(1);
   const inputsRef = useRef<{
     [key: string]: LegacyRef<HTMLInputElement> | null;

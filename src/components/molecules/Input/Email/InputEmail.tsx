@@ -17,6 +17,7 @@ type InputTextType = {
 export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [isEmail, setIsEmail] = useState<boolean>(true);
   const [emailLength, setEmailLength] = useState<boolean>(true);
+  const [value, setValue] = useState<string>(props.default || '');
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (
       (props.minLength && event.target.value.length < props.minLength) ||
@@ -33,6 +34,7 @@ export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, re
     } else {
       setIsEmail(false);
     }
+    setValue(event.target.value)
   };
   return (
     <Label
@@ -55,7 +57,7 @@ export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, re
           required={props.required}
           minLength={props.minLength}
           maxLength={props.maxLength}
-          value={props.default}
+          value={value}
         />
         {!isEmail && <span className={'input_warning'}>Nieprawidłowy email</span>}
       </>

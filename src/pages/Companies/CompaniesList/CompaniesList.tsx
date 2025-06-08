@@ -3,11 +3,12 @@ import { Plus, Trash2, HardDriveDownload, HardDriveUpload, Settings } from 'luci
 import { InputText } from '../../../components/molecules/Input/Text/InputText';
 import { Button } from '../../../components/atoms/Button/Button';
 import { ButtonDropDown } from '../../../components/molecules/ButtonDropDown/ButtonDropDown';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DropDownExport } from '../../../components/molecules/ButtonDropDown/DropDownExport';
 import { CompanyColumnsType, CompanyListColumnsSwitch } from './CompanyListColumnsSwitch';
 import { columns, rows } from './CompanyListData';
 import { Link } from '../../../components/atoms/Link/Link';
+import useAxios from '../../../hooks/useAxios';
 export type CompanyType = {
   id: string;
   name: string;
@@ -17,6 +18,8 @@ export type CompanyType = {
 };
 
 export const CompaniesList = () => {
+  const {response, error, loading, fetchData} =  useAxios();
+
   const [searchText, setSearchText] = useState<string>('');
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const [showColumns, setShowColumns] = useState<CompanyColumnsType>({
@@ -24,7 +27,15 @@ export const CompaniesList = () => {
     adress: true,
     nip: true,
   });
-
+    const getCompanies = async () =>{
+      return await fetchData({
+        url: '/company',
+        method: "GET",
+      })
+    }
+    useEffect(()=>{
+      getCompanies()
+    },[])
   return (
     <div className="list__company__container">
       <h2 className="Header__2">Firmy</h2>
@@ -82,7 +93,8 @@ export const CompaniesList = () => {
         </div>
         <DataTable
           columns={columns}
-          rows={rows}
+          loading={loading}
+          rows={response?.companies}
           filterColumns={showColumns}
           searchText={searchText}
           getSelectedRows={setSelectedRows}

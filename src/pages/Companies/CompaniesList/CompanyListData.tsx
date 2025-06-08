@@ -7,7 +7,7 @@ export const columns: GridColDef[] = [
     field: 'name',
     headerName: 'Nazwa',
     disableColumnMenu: true,
-    flex: 1.5,
+    flex: 0.7,
     resizable: false,
     filterable: false,
     renderCell: (param) => (
@@ -16,13 +16,21 @@ export const columns: GridColDef[] = [
       </Link>
     ),
   },
-  { field: 'adress', headerName: 'Adres', disableColumnMenu: true, flex: 1, resizable: true },
+  {
+    field: 'city',
+    headerName: 'Adress',
+    type: 'string',
+    disableColumnMenu: true,
+    flex: 0.4,
+    resizable: true,
+     renderCell: (params) =>  {console.log(params); return params?.row?.city && params?.row?.street ? `${params?.row?.city}, ${params?.row?.street}`: ""}
+  },
   {
     field: 'nip',
     headerName: 'NIP',
     disableColumnMenu: true,
     type: 'number',
-    flex: 0.5,
+    flex: 0.7,
     resizable: false,
     filterable: false,
   },

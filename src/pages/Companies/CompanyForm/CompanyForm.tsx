@@ -1,11 +1,11 @@
-import { LegacyRef, useRef, useState } from 'react';
+import {  useRef, useState } from 'react';
 import { InputText } from '../../../components/molecules/Input/Text/InputText';
 import { InputNumber } from '../../../components/molecules/Input/Number/InputNumber';
 import { Button } from '../../../components/atoms/Button/Button';
 import { InputPhone } from '../../../components/molecules/Input/Phone/InputPhone';
 import { InputEmail } from '../../../components/molecules/Input/Email/InputEmail';
 import { InputTextarea } from '../../../components/molecules/Input/Textarea/InputTextarea';
-import ReactQuill from 'react-quill-new';
+import useAxios from '../../../hooks/useAxios';
 
 type CompanyType = {
   nip: number;
@@ -15,30 +15,36 @@ type CompanyType = {
   postalCode: string;
   city: string;
   street: string;
-  phoneNumber: number;
+  phoneNumber: string;
   email: string;
-  notes: string;
-};
-type CompanyFormType = {
-  data?: CompanyType;
+  notes: any;
 };
 
-export const CompanyForm = (props: CompanyFormType) => {
+export const CompanyForm = (props: {data?:CompanyType}) => {
   const [toggleData, setToggleData] = useState<boolean>(true);
-  const inputsRef = useRef<{
-    [key: string]: LegacyRef<HTMLInputElement> | null;
-  }>({});
+  const {response, error, loading, fetchData} =  useAxios();
+  const inputsRef = useRef<Partial<Record<keyof CompanyType, CompanyType[keyof CompanyType]>>>({});
 
-  const textareaRef = useRef<{
-    [key: string]: LegacyRef<ReactQuill> | null;
-  }>({});
+  const createCompany =  () =>{
+   fetchData({
+    url: '/company',
+    method: "POST",
+    data: inputsRef.current,
+
+
+   })
+}
+
   return (
     <div className={'company__edit__wrapper'}>
       <div className="company__edit__wrapper__main">
         <h3 className="company__edit__wrapper__main__header">Firmy</h3>
+        <h3 className="company__edit__wrapper__main__header">{loading}</h3>
+        <h3 className="company__edit__wrapper__main__header">{error}</h3>
+        <h3 className="company__edit__wrapper__main__header">{response}</h3>
         <div className={'company__edit__wrapper__main__nip'}>
           <InputText
-            ref={inputsRef.current['company__input__nip']}
+            ref={(el) => (inputsRef.current['nip'] = Number(el?.value))}
             id={'company__input__nip'}
             testData="company__input__nip"
             default={String(props.data?.nip ?? '')}
@@ -50,7 +56,7 @@ export const CompanyForm = (props: CompanyFormType) => {
         <div className={'company__edit__wrapper__main__info'}>
           <div style={{ width: '50%' }}>
             <InputText
-              ref={inputsRef.current['company__input__name']}
+              ref={(el) => (inputsRef.current['name'] = el?.value)}
               id={'company__input__name'}
               testData="company__input__name"
               default={props.data?.name ?? ''}
@@ -60,7 +66,7 @@ export const CompanyForm = (props: CompanyFormType) => {
           </div>
           <div style={{ width: '25%', margin: '0 2rem' }}>
             <InputNumber
-              ref={inputsRef.current['company__input__regon']}
+              ref={(el) => (inputsRef.current['regon'] = Number(el?.value))}
               id={'company__input__regon'}
               testData="company__input__regon"
               default={props.data?.regon}
@@ -69,7 +75,7 @@ export const CompanyForm = (props: CompanyFormType) => {
           </div>
           <div style={{ width: '25%' }}>
             <InputText
-              ref={inputsRef.current['company__input__pkd']}
+              ref={(el) => (inputsRef.current['pkd'] = el?.value)}
               id={'company__input__pkd'}
               testData="company__input__pkd"
               default={props.data?.pkd ?? ''}
@@ -99,7 +105,7 @@ export const CompanyForm = (props: CompanyFormType) => {
               className={'company__edit__wrapper__main__rest__data__contact'}
             >
               <InputText
-                ref={inputsRef.current['company__input__postal']}
+                ref={(el) => (inputsRef.current['postalCode'] = el?.value)}
                 id={'company__input__postal'}
                 testData="company__input__postal"
                 default={props.data?.postalCode ?? ''}
@@ -108,7 +114,7 @@ export const CompanyForm = (props: CompanyFormType) => {
                 labelText="KOD pocztowy"
               />
               <InputText
-                ref={inputsRef.current['company__input__city']}
+                ref={(el) => (inputsRef.current['city'] = el?.value)}
                 id={'company__input__city'}
                 testData="company__input__city"
                 default={props.data?.city ?? ''}
@@ -117,7 +123,7 @@ export const CompanyForm = (props: CompanyFormType) => {
                 labelText="Miasto"
               />
               <InputText
-                ref={inputsRef.current['company__input__street']}
+                ref={(el) => (inputsRef.current['street'] = el?.value)}
                 id={'company__input__street'}
                 testData="company__input__street"
                 default={props.data?.street ?? ''}
@@ -126,7 +132,7 @@ export const CompanyForm = (props: CompanyFormType) => {
                 labelText="ulica"
               />
               <InputPhone
-                ref={inputsRef.current['company__input__phone']}
+                ref={(el) => (inputsRef.current['phone'] = "+48 "+el?.value)}
                 id={'company__input__phone'}
                 testData="company__input__phone"
                 default={String(props.data?.phoneNumber ?? '')}
@@ -134,7 +140,7 @@ export const CompanyForm = (props: CompanyFormType) => {
                 labelText="Numer telefonu"
               />
               <InputEmail
-                ref={inputsRef.current['company__input__email']}
+                ref={(el) => (inputsRef.current['email'] = el?.value)}
                 id={'company__input__email'}
                 testData="company__input__email"
                 default={props.data?.email ?? ''}
@@ -147,7 +153,7 @@ export const CompanyForm = (props: CompanyFormType) => {
               className={'company__edit__wrapper__main__rest__notes'}
             >
               <InputTextarea
-                ref={textareaRef.current['company__input__notes']}
+                ref={(el) => (inputsRef.current['notes'] = el?.value)}
                 id={'company__input__notes'}
                 testData="company__input__notes"
                 default={props.data?.notes}
@@ -159,9 +165,7 @@ export const CompanyForm = (props: CompanyFormType) => {
             <Button
               style={{ width: '150px' }}
               class="button--blue"
-              onClick={() => {
-                console.log(inputsRef);
-              }}
+              onClick={createCompany}
             >
               Zapisz
             </Button>

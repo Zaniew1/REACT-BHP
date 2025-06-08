@@ -1,0 +1,31 @@
+.history__element
+    width: 100%
+    display: flex
+    &__dots
+        width: 2%
+        margin-left: 3rem
+        border-left: 1px solid rgb(112, 113, 164)
+        &__dot
+            display: block
+            transform: translateX(-50%)
+            width: 1.2rem
+            height: 1.2rem
+            border-radius: 50%
+    &__data
+        width: 50%
+        flex-grow: 1
+        padding-left: 2rem
+        &__type
+           color: $text-color 
+           font-size: 1.2rem
+        &__what
+            font-size: 1rem
+            color: $text-darker-color
+            padding: 0 1rem 3rem 0.5rem
+    &__time
+        display: flex
+        align-items: flex-start
+        justify-content: flex-end
+        width: 40%
+        margin: 0 1rem
+        color: $text-darker-color
