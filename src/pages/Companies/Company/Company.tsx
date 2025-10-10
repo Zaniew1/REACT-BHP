@@ -22,6 +22,7 @@ import { StoreDocs } from '../../../components/organisms/StoreDocs/StoreDocs';
 import { Paragraph } from '../../../components/atoms/Paragraph/Paragraph';
 import { Link } from '../../../components/atoms/Link/Link';
 import {ModalWithBlackBackground} from '../../../components/molecules/Portals/Error/ModalWithBlackBackground';
+import { BasicModal } from '../../../components/molecules/Portals/BasicModal/BasicModal';
 
 export const Company = (): React.JSX.Element => {
   // const { id } = useParams();
@@ -51,9 +52,9 @@ export const Company = (): React.JSX.Element => {
     ],
   ];
   const [error, setError] = useState<string>("Something went wrong")
-   const handleClose = () => {
-    setError('');
-  };
+  //  const handleClose = () => {
+  //   setError('');
+  // };
   return (
     <>
       <div className="company__info">
@@ -64,7 +65,7 @@ export const Company = (): React.JSX.Element => {
           linkText="Firmy"
           linkHref="/firmy"
         />
-          <ModalWithBlackBackground error={error} onClose={handleClose} />
+        <BasicModal text={error} type="success" />
         <div className={'company__info__wrapper'}>
           <div className="company__info__wrapper__main">
             <ElementsInformation

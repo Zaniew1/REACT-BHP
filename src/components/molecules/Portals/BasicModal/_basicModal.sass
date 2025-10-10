@@ -1,0 +1,26 @@
+.portal
+    position: fixed
+    top: 10%
+    right: 0%
+    width: 350px
+    height: 130px
+    background-color: #fff
+    &__popup
+        display: flex
+        flex-direction: column
+        
+        &__title
+            font-size: 12px
+        &__message
+            font-size: 12px
+    &__close
+        position: absolute
+        width: 2em
+        height: 2em
+        top: -5%
+        left: -5%
+        outline: none
+        background-color: $extraColor
+        border: none
+        cursor: pointer
+        border-radius: $border-radius

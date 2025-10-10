@@ -48,9 +48,9 @@ const useAxios = () => {
             })
             setResponse(result.data?.success)
         }catch(e){
-            console.log(e)
+            console.log(e?.response?.data?.errors[0].message)
             if(axios.isCancel(error)){console.log("Request cancelled: "+error)}
-            else setError(e.message ?? e.response.data);
+            else setError(e?.response?.data?.errors[0].message ?? e.message);
         }finally{
             setLoading(false);
         }

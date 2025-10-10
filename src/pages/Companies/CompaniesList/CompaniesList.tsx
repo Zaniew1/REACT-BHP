@@ -6,7 +6,7 @@ import { ButtonDropDown } from '../../../components/molecules/ButtonDropDown/But
 import { useEffect, useState } from 'react';
 import { DropDownExport } from '../../../components/molecules/ButtonDropDown/DropDownExport';
 import { CompanyColumnsType, CompanyListColumnsSwitch } from './CompanyListColumnsSwitch';
-import { columns, rows } from './CompanyListData';
+import { columns} from './CompanyListData';
 import { Link } from '../../../components/atoms/Link/Link';
 import useAxios from '../../../hooks/useAxios';
 export type CompanyType = {
@@ -17,6 +17,9 @@ export type CompanyType = {
   coworkers: boolean;
 };
 
+function deleteCompany(){
+  
+}
 export const CompaniesList = () => {
   const {response, error, loading, fetchData} =  useAxios();
 
@@ -36,6 +39,16 @@ export const CompaniesList = () => {
     useEffect(()=>{
       getCompanies()
     },[])
+    function deleteCompanies(ids: number[]){
+      console.log(ids)
+      ids.forEach(async (id:number)=>{
+         await fetchData({
+              url: '/company/'+id,
+              method: "DELETE",
+            })
+        
+      })
+    }
   return (
     <div className="list__company__container">
       <h2 className="Header__2">Firmy</h2>
@@ -68,7 +81,7 @@ export const CompaniesList = () => {
             id={'list__company__delete'}
             disabled={selectedRows.length === 0 ? true : false}
             onClick={() => {
-              // useDeleteCompany(selectedRows);
+              deleteCompanies(selectedRows);
             }}
             class="button--red"
           >

@@ -23,8 +23,8 @@ export const WorkersList = () => {
     validityTrainingPeriodical: true,
     validityTrainingEntry: true,
     validityMedicalExamination: true,
-    status: true,
   });
+
   const getWorkers = async () =>{
    return await fetchData({
         url: '/worker',

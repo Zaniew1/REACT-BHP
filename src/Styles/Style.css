@@ -444,51 +444,35 @@ body {
   color: rgb(112, 113, 164);
 }
 
-.error-popup-overlay {
+.portal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  top: 10%;
+  right: 0%;
+  width: 350px;
+  height: 130px;
+  background-color: #fff;
+}
+.portal__popup {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  cursor: pointer;
+  flex-direction: column;
 }
-
-.error-popup {
-  background: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
+.portal__popup__title {
+  font-size: 12px;
 }
-.error-popup__title {
-  color: #e53935;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+.portal__popup__message {
+  font-size: 12px;
 }
-.error-popup__message {
-  color: #333;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
-.error-popup__close-button {
-  background-color: #e53935;
-  color: white;
-  padding: 0.75rem 1.5rem;
+.portal__close {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  top: -5%;
+  left: -5%;
+  outline: none;
+  background-color: rgb(105, 108, 255);
   border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-.error-popup:hover {
-  background-color: #c62828;
+  border-radius: 1.2em;
 }
 
 .input__wrapper {

@@ -1,10 +1,10 @@
 import ReactDOM from 'react-dom';
 
- export const ModalWithBlackBackground = ({ error, onClose }) => {
+ export const ModalWithBlackBackground = ({ error, onClose, onAccept}) => {
   if (!error) return null;
 
   return ReactDOM.createPortal(
-    <div className="error-popup-overlay"  onClick={onClose}>
+    <div className="error-popup-overlay"  onClick={onClose} >
       <div className="error-popup"  onClick={(e) => e.stopPropagation()}>
         <h2 className="error-popup__title">An Error Occurred</h2>
         <p className="error-popup__message">{error}</p>

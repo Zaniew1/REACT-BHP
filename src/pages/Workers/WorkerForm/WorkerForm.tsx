@@ -17,6 +17,7 @@ import { InputNumber } from '../../../components/molecules/Input/Number/InputNum
 import { CompanyType } from '../../Companies/CompaniesList/CompaniesList';
 import { SelectInstance } from 'react-select';
 import ReactQuill from 'react-quill-new';
+import useAxios from '../../../hooks/useAxios';
 
 type WorkerType = {
   name: string;
@@ -52,15 +53,22 @@ type WorkerType = {
 
 export const WorkerForm = (props: {data?: WorkerType}) => {
   const [toggleData, setToggleData] = useState<1 | 2 | 3 | 4 | 5>(1);
-  const inputsRef = useRef<{
-    [key: string]: LegacyRef<HTMLInputElement> | null;
-  }>({});
+  const {response, error, loading, fetchData} =  useAxios();
+
+  const inputsRef = useRef<Partial<Record<keyof CompanyType, CompanyType[keyof CompanyType]>>>({});
   const selectsRef = useRef<{
     [key: string]: LegacyRef<SelectInstance<SelectType, false>> | null;
   }>({});
-  const textareaRef = useRef<{
-    [key: string]: LegacyRef<ReactQuill> | null;
-  }>({});
+
+  const createWorker =  () =>{
+    fetchData({
+      url: '/company',
+      method: "POST",
+      data: inputsRef.current,
+    })
+  }
+
+
   return (
     <div className={'worker__edit__wrapper'}>
       <div className="worker__edit__wrapper__main">
@@ -356,26 +364,26 @@ export const WorkerForm = (props: {data?: WorkerType}) => {
                   labelText="Pracownik młodociany"
                 />
               </div>
-              <InputTextarea
+              {/* <InputTextarea
                 ref={textareaRef.current['worker__input__position__notes']}
                 id={'worker__input__position__notes'}
                 testData="worker__input__position__notes"
                 default={String(props.data?.positionNotes ?? '')}
                 labelText={'Opis stanowiska'}
                 wrapperStyle={{ width: '100%' }}
-              />
+              /> */}
             </div>
             <div
               style={{ display: `${toggleData == 5 ? 'flex' : 'none'}`, marginBottom: '3rem' }}
               className={'worker__edit__wrapper__main__rest__notes'}
             >
-              <InputTextarea
+              {/* <InputTextarea
                 ref={textareaRef.current['worker__input__notes']}
                 id={'worker__input__notes'}
                 testData="worker__input__notes"
                 default={String(props.data?.notes ?? '')}
                 wrapperStyle={{ width: '100%' }}
-              />
+              /> */}
             </div>
           </div>
           <div className={'worker__edit__wrapper__main__rest__save'}>
@@ -383,7 +391,7 @@ export const WorkerForm = (props: {data?: WorkerType}) => {
               style={{ width: '150px' }}
               class="button--blue"
               type="submit"
-              onClick={() => {}}
+              onClick={createWorker}
             >
               Zapisz
             </Button>
