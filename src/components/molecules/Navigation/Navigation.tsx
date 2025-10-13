@@ -21,9 +21,9 @@ export const Navigation = (): React.JSX.Element => {
   }, [pathname]);
   return (
     <div className={'navigation'}>
-      <Link href={'/firmy'} class={`navigation__link ${linkActive === 1 ? 'navigation--active' : ''}`}>
+      <Link href={'/123'} class={`navigation__link ${linkActive === 1 ? 'navigation--active' : ''}`}>
         <Building2 />
-        <Paragraph class={'navigation_paragraph '} text={'Firmy'} />
+        <Paragraph class={'navigation_paragraph '} text={'Firmy2'} />
       </Link>
       <Link href={'/pracownicy'} class={`navigation__link  ${linkActive === 2 ? 'navigation--active' : ''}`}>
         <UsersRound />

@@ -11,7 +11,7 @@ type fetchParameters = {
 const useAxios = () => {
     const [response, setResponse] = useState(null)
     const [error, setError] = useState("");
-    const [loading, setLoading] = useState(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const axiosInstance = axios.create({
         'baseURL':"http://localhost:4000",
@@ -47,10 +47,10 @@ const useAxios = () => {
                 signal: controller.signal
             })
             setResponse(result.data?.success)
-        }catch(e){
-            console.log(e?.response?.data?.errors[0].message)
-            if(axios.isCancel(error)){console.log("Request cancelled: "+error)}
-            else setError(e?.response?.data?.errors[0].message ?? e.message);
+        }catch(e: any){
+            console.log(e?.response?.data?.errors?.[0]?.message)
+            if(axios.isCancel(e)){console.log("Request cancelled: "+e)}
+            else setError(e?.response?.data?.errors?.[0]?.message ?? e.message);
         }finally{
             setLoading(false);
         }

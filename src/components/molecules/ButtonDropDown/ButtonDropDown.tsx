@@ -31,7 +31,7 @@ export const ButtonDropDown = (props: ButtonDropDownType) => {
 
     return () => document.removeEventListener('click', closeDropdown);
   }, [showDropDown]);
-  const handleDropdownClick = (e) => {
+  const handleDropdownClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
   };
 

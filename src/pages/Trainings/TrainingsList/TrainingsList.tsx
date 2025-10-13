@@ -11,6 +11,7 @@ import { Link } from '../../../components/atoms/Link/Link';
 
 export const TrainingsList = () => {
   const [searchText, setSearchText] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
   const [showColumns, setShowColumns] = useState<TrainingsColumnsType>({
     company: true,
@@ -74,6 +75,7 @@ export const TrainingsList = () => {
         </div>
         <DataTable
           columns={columns}
+          loading={loading}
           rows={rows}
           filterColumns={showColumns}
           searchText={searchText}

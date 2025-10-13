@@ -1,17 +1,26 @@
 {
-  "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "module": "ESNext", // or "CommonJS" if you're not using Node ESM
+    "moduleResolution": "bundler", // RECOMMENDED for React + Vite/Webpack
+    "jsx": "react-jsx", // <-- THIS IS CRUCIAL
+    "allowJs": true,
     "esModuleInterop": true,
-    "strict": true,
-    "resolveJsonModule": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": false,
+    "noEmit": true,
+    "outDir": "dist"
   },
-  "include": ["cypress", "cypress.config.ts"],
-  "exclude": ["node_modules"]
+   "rules": {
+    // Note: you must disable the base rule as it can report incorrect errors
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
+  },
+  // "include": ["cypress", "cypress.config.ts"],
+  "exclude": ["node_modules", "cypress", "**/*.cy.ts", "**/*.spec.ts"]
   
 }

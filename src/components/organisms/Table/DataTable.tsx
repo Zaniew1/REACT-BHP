@@ -19,7 +19,7 @@ type DatagridType = {
   apiRef?: MutableRefObject<GridApiCommunity>;
   filterColumns?: WorkersColumnsType | CompanyColumnsType | TrainingsColumnsType;
   searchText?: string;
-  loading: boolean;
+  loading?: boolean;
   getSelectedRows?: (value: number[]) => void;
 };
 export type ListColumnsSwitchType<T> = {

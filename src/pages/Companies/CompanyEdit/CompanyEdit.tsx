@@ -8,11 +8,12 @@ export const CompanyEdit = () => {
     nip: 123123123,
     name: '12asdasd',
     regon: 123123,
+    author: 123123,
     pkd: '12asdasd',
     postalCode: '12asdasd',
     city: '12asdasd',
     street: '12asdasd',
-    phoneNumber: 12312312,
+    phoneNumber: "12312312",
     email: '12asdasd',
     notes: '12asdasd',
   };

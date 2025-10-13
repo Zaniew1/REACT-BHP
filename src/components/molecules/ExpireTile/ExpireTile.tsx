@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactNode } from 'react'
+import { CSSProperties, ReactNode } from 'react'
 import { Icon } from '../../atoms/Icon/Icon'
 import { Link } from '../../atoms/Link/Link'
 import { Paragraph } from '../../atoms/Paragraph/Paragraph';

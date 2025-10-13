@@ -1,0 +1,28 @@
+# ---- Stage 1: Build the app ----
+FROM node:18-alpine AS builder
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files and install deps
+COPY package*.json ./
+RUN npm ci
+
+# Copy rest of the source and build
+COPY . .
+RUN npm run build
+
+# ---- Stage 2: Serve the built app ----
+FROM nginx:stable-alpine
+
+# Copy the build output to Nginx’s public directory
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Optional: replace default Nginx config (recommended below)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

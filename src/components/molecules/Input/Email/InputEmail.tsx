@@ -16,7 +16,7 @@ type InputTextType = {
 };
 export const InputEmail = forwardRef<HTMLInputElement, InputTextType>((props, ref) => {
   const [isEmail, setIsEmail] = useState<boolean>(true);
-  const [emailLength, setEmailLength] = useState<boolean>(true);
+  const [_emailLength, setEmailLength] = useState<boolean>(true);
   const [value, setValue] = useState<string>(props.default || '');
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (
